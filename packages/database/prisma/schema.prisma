@@ -1,0 +1,191 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SenderType {
+  Application
+  SMTP
+  Webhook
+  Lark
+  Slack
+  SMS
+}
+
+enum RecipientType {
+  NoNeed
+  Firebase
+  Email
+  Phone
+  Webhook
+}
+
+enum NotificationStatus {
+  Pending
+  Succeed
+  Failed
+}
+
+enum ActiveStatus {
+  Active
+  Suspend
+}
+
+enum JobStatus {
+  Pending
+  Running
+  Finished
+}
+
+enum MessageStatus {
+  Pending
+  Senting
+  Succeed
+  Failed
+}
+
+ 
+model Sender {
+  id               Int      @id @default(autoincrement())
+  name             String   
+  app              String
+  type             SenderType
+  recipientType    RecipientType
+  credential       Credential?
+  isEditable       Boolean  @default(true)
+  status           ActiveStatus      @default(Active)
+  user             String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+
+model Credential {
+  id           Int      @id @default(autoincrement())
+  sender       Sender   @relation(fields: [senderId], references: [id]) 
+  senderId     Int      @unique
+  type         SenderType
+  data         Json
+ 
+}
+
+model Recipients {
+  id             Int      @id @default(autoincrement())
+  name           String   @unique
+  type           RecipientType
+  addressbook    RecipientAddress[]
+  isEditable     Boolean  @default(true)
+  status         ActiveStatus      @default(Active)
+  user           String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt 
+}
+
+model RecipientAddress {
+  id           Int      @id @default(autoincrement())
+  name         String
+  recipients   Recipients       @relation(fields: [recipientsId], references: [id]) 
+  recipientsId Int
+  type         RecipientType
+  data         Json
+ 
+}
+
+model NotifyPolicy {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  notify      NotifyRule[]
+  isDefault   Boolean  @default(false)
+  status      ActiveStatus      @default(Active)
+  user        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  jobs        Job[]  
+}
+
+model NotifyRule {
+  id              Int      @id @default(autoincrement())
+  notifyPolicy    NotifyPolicy       @relation(fields: [notifyPolicyId], references: [id]) 
+  notifyPolicyId  Int
+  sender          Int
+  recipients      Int
+  status          ActiveStatus      @default(Active)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+ 
+model Template {
+  id              Int      @id @default(autoincrement())
+  name            String
+  appId           String
+  appName         String
+  appTemplateName String
+  defaultLanguage String
+  content         TemplateContent[]
+  variables       Json?
+  notifyGroup     String
+  user            String
+  topic           String
+  status          ActiveStatus      @default(Active)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  jobs            Job[]
+
+  @@unique([appTemplateName, appId])
+}
+
+model TemplateContent {
+  id              Int           @id @default(autoincrement())
+  template        Template      @relation(fields: [templateId], references: [id]) 
+  templateId      Int
+  language        String
+  body            String
+  title           String
+
+  @@unique([templateId, language])
+}
+
+model Job {
+  id              Int           @id @default(autoincrement())
+  template        Template      @relation(fields: [templateId], references: [id]) 
+  templateId      Int
+  notifyPolicy    NotifyPolicy       @relation(fields: [notifyPolicyId], references: [id]) 
+  notifyPolicyId  Int
+  language        String
+  messageNum      Int  @default(0)
+  sentNum         Int  @default(0)
+  successNum      Int  @default(0)
+  rawMessage      Json
+  messages        Message[]
+  user            String
+  status          JobStatus      @default(Pending)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status])
+}
+
+model Message {
+  id               Int      @id @default(autoincrement())
+  job              Job      @relation(fields: [jobId], references: [id]) 
+  jobId            Int
+  message          String
+  senderType       SenderType
+  sender           String
+  recipientType    RecipientType
+  recipient        String
+  user             String
+  status           MessageStatus      @default(Pending)
+  statusInfo       String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([status])
+}
