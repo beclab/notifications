@@ -55,3 +55,4 @@ jobs:
                 file: Dockerfile.frontend
                 push: true
                 tags: beclab/notifications-frontend:${{ steps.get-latest-tag.outputs.tag }}
+                platforms: linux/amd64,linux/arm64
