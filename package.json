@@ -11,6 +11,7 @@
 		"build": "lerna run build",
 		"api:build": "lerna run build --scope @notifications/api",
 		"frontend:build": "lerna run build --scope '{@notifications/frontend,@notifications/database}'",
+		"generate": "lerna run generate --scope @notifications/database",
 		"db:migrate:deploy": "lerna run db:migrate:deploy --scope @notifications/database",
 		"db:migrate:dev": "pnpm recursive --filter database exec -- pnpm run db:migrate:dev",
 		"studio": "lerna run studio --scope @notifications/database",
@@ -18,7 +19,6 @@
 		"db:seed": "lerna run db:seed --scope @notifications/database",
 		"dev": "lerna run dev --scope '{@notifications/frontend,@notifications/database,@notifications/api}' --stream",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"generate": "turbo run generate",
 		"lint": "lerna run lint",
 		"clean": "lerna run clean & rimraf node_modules"
 	},
