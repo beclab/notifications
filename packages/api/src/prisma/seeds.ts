@@ -91,16 +91,16 @@ export const TemplateList = [
     appId: 'system',
     appName: 'System',
     appTemplateName: 'login',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
-          title: 'New User Login',
+          language: 'en-US',
+          title: 'New user login',
           body: 'At {{time}}, user {{username}} logged in to Terminus on {{device}} located in {{location}}.',
         },
         {
-          language: 'cn',
+          language: 'zh-CN',
           title: '新的用户登录',
           body: '在 {{time}}，用户 {{username}} 在位于 {{location}} 的 {{device}} 上登录了 Terminus',
         },
@@ -117,13 +117,18 @@ export const TemplateList = [
     appId: 'vault',
     appName: 'Vault',
     appTemplateName: 'vault.account.update',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
-          title: 'Vault Updated',
-          body: 'Vault Updated.',
+          language: 'en-US',
+          title: 'Vault updated',
+          body: 'Vault updated.',
+        },
+        {
+          language: 'zh-CN',
+          title: 'Vault 更新',
+          body: 'Vault 已更新',
         },
       ],
     },
@@ -138,13 +143,18 @@ export const TemplateList = [
     appId: 'vault',
     appName: 'Vault',
     appTemplateName: 'vault.org.update',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
+          language: 'en-US',
           title: 'Vault Updated',
           body: 'Vault Updated.',
+        },
+        {
+          language: 'zh-CN',
+          title: 'Vault 更新',
+          body: 'Vault 已更新',
         },
       ],
     },
@@ -159,13 +169,18 @@ export const TemplateList = [
     appId: 'system',
     appName: 'System',
     appTemplateName: 'system.second.verification',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
-          title: 'Login Terminus Web',
-          body: 'Your Terminus Name {{terminusName}} is being used to log in to Terminus web. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+          language: 'en-US',
+          title: 'Log in to Terminus',
+          body: 'Your Terminus Name {{terminusName}} is being used to log in to Terminus. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+        },
+        {
+          language: 'zh-CN',
+          title: 'Terminus 登录提醒',
+          body: '您的 Terminus Name {{terminusName}} 正在被用于登录 Terminus。请确认是否是您本人操作。点击确认以授权登录，点击取消拒绝登录。',
         },
       ],
     },
@@ -180,13 +195,18 @@ export const TemplateList = [
     appId: 'settings',
     appName: 'Settings',
     appTemplateName: 'settings.bind.space',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
+          language: 'en-US',
           title: 'Bind Terminus Space',
-          body: 'Your Terminus Name {{terminusName}} is applying to bind a Terminus Space account. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+          body: 'Your Terminus Name {{terminusName}} is being used to bind a Terminus Space account. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+        },
+        {
+          language: 'zh-CN',
+          title: '绑定 Terminus Space',
+          body: '您的 Terminus Name {{terminusName}} 正在被用于创建 Terminus Space 账户。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
         },
       ],
     },
@@ -201,7 +221,7 @@ export const TemplateList = [
     appId: 'settings',
     appName: 'Settings',
     appTemplateName: 'settings.cancel.sign',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {},
     variables: [],
     notifyGroup: 'TermiPass',
@@ -214,7 +234,7 @@ export const TemplateList = [
     appId: 'system',
     appName: 'System',
     appTemplateName: 'system.cancel.sign',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {},
     variables: [],
     notifyGroup: 'TermiPass',
@@ -227,13 +247,18 @@ export const TemplateList = [
     appId: 'settings',
     appName: 'Settings',
     appTemplateName: 'settings.bind.ethereum',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
+          language: 'en-US',
           title: 'Bind New Ethereum Address',
           body: 'Your Terminus Name {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+        },
+        {
+          language: 'zh-CN',
+          title: '绑定新的以太坊地址',
+          body: '您的 Terminus Name {{terminusName}} 正被用于授权完成  {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
         },
       ],
     },
@@ -248,13 +273,18 @@ export const TemplateList = [
     appId: 'settings',
     appName: 'Settings',
     appTemplateName: 'settings.unbind.ethereum',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
-          title: 'Remove Bind Ethereum Address',
+          language: 'en-US',
+          title: 'Unbind Ethereum Address',
           body: 'Your Terminus Name {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+        },
+        {
+          language: 'zh-CN',
+          title: '取消绑定以太坊地址',
+          body: '您的 Terminus Name {{terminusName}} 正被用于授权完成 {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。.',
         },
       ],
     },
@@ -269,13 +299,18 @@ export const TemplateList = [
     appId: 'profile',
     appName: 'Profile',
     appTemplateName: 'profile.bind.nft',
-    defaultLanguage: 'en',
+    defaultLanguage: 'en-US',
     content: {
       create: [
         {
-          language: 'en',
+          language: 'en-US',
           title: 'Bind NFT Avatar',
           body: 'Your Terminus Name {{terminusName}} is applying to bind an NFT avatar, please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+        },
+        {
+          language: 'zh-CN',
+          title: '绑定 NFT 头像',
+          body: '您的 Terminus Name {{terminusName}} 正在被用于绑定 NFT 头像。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
         },
       ],
     },

@@ -37,7 +37,7 @@ export class SystemController {
       this.jobService.processOneJob({
         templateId: template.id,
         notifyPolicyId: notifyPolicy.id,
-        language: 'en',
+        language: this.jobService.language,
         rawMessage: {
           vars: {
             time: new Date().toLocaleString(),
@@ -89,7 +89,7 @@ export class SystemController {
         this.jobService.processOneJob({
           templateId: template.id,
           notifyPolicyId: notifyPolicy.id,
-          language: 'en',
+          language: this.jobService.language,
           rawMessage: JSON.parse(body.commonAnnotations.message),
         });
       } else {

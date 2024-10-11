@@ -56,6 +56,8 @@ export class JobService implements OnModuleInit {
 
   public terminusInfo: TerminusInfo | null = null;
 
+  public language: string = 'en-US';
+
   constructor(
     private prisma: PrismaService,
     private readonly senderService: SenderService,
@@ -83,6 +85,24 @@ export class JobService implements OnModuleInit {
     return response.data.data;
   }
 
+  public async updateLanguage() {
+    this.logger.debug('updateLanguage');
+    try {
+      const response: any = await axios.get('/bfl/backend/v1/config-system');
+      this.logger.log('config_system');
+      this.logger.log(response.data);
+
+      if (response.data.code !== 0) {
+        throw new Error(response.data.message);
+      }
+
+      this.language = response.data.data.language || 'en-US';
+      console.log(this.language);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async onModuleInit() {
     const m = await this.prisma.message.findMany({
       where: { status: 'Pending' },
@@ -97,6 +117,7 @@ export class JobService implements OnModuleInit {
     );
 
     await this.updateTerminusInfo();
+    await this.updateLanguage();
   }
 
   async findAll(): Promise<Job[]> {
