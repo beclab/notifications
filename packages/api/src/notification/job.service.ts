@@ -88,7 +88,9 @@ export class JobService implements OnModuleInit {
   public async updateLanguage() {
     this.logger.debug('updateLanguage');
     try {
-      const response: any = await axios.get('/bfl/backend/v1/config-system');
+      const response: any = await axios.get(
+        'http://bfl/bfl/backend/v1/config-system',
+      );
       this.logger.log('config_system');
       this.logger.log(response.data);
 
