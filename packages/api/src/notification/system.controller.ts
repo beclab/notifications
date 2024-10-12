@@ -41,7 +41,7 @@ export class SystemController {
         rawMessage: {
           vars: {
             time: new Date().toLocaleString(),
-            username: '',
+            username: payload.eventData.user,
             device: '',
             location: '',
           },
