@@ -97,12 +97,12 @@ export const TemplateList = [
         {
           language: 'en-US',
           title: 'New user login',
-          body: 'At {{time}}, user {{username}} logged in to Terminus.',
+          body: 'At {{time}}, {{username}} logged in to Terminus.',
         },
         {
           language: 'zh-CN',
           title: '新的用户登录',
-          body: '在 {{time}}，用户 {{username}} 登录了 Terminus',
+          body: '在 {{time}}，{{username}} 登录了 Terminus',
         },
       ],
     },
