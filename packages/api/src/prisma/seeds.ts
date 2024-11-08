@@ -97,12 +97,12 @@ export const TemplateList = [
         {
           language: 'en-US',
           title: 'New user login',
-          body: 'At {{time}}, {{username}} logged in to Terminus.',
+          body: 'At {{time}}, {{username}} logged in to Olares.',
         },
         {
           language: 'zh-CN',
           title: '新的用户登录',
-          body: '在 {{time}}，{{username}} 登录了 Terminus',
+          body: '在 {{time}}，{{username}} 登录了 Olares',
         },
       ],
     },
@@ -165,7 +165,7 @@ export const TemplateList = [
   },
   {
     topic: MessageTopic.SIGN,
-    name: 'Login Terminus Web',
+    name: 'Login Olares Web',
     appId: 'system',
     appName: 'System',
     appTemplateName: 'system.second.verification',
@@ -174,13 +174,13 @@ export const TemplateList = [
       create: [
         {
           language: 'en-US',
-          title: 'Log in to Terminus',
-          body: 'Your Terminus Name {{terminusName}} is being used to log in to Terminus. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+          title: 'Log in to Olares',
+          body: 'Your Olares ID {{terminusName}} is being used to log in to Olares. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
         },
         {
           language: 'zh-CN',
-          title: 'Terminus 登录提醒',
-          body: '您的 Terminus Name {{terminusName}} 正在被用于登录 Terminus。请确认是否是您本人操作。点击确认以授权登录，点击取消拒绝登录。',
+          title: 'Olares 登录提醒',
+          body: '您的 Olares ID {{terminusName}} 正在被用于登录 Olares。请确认是否是您本人操作。点击确认以授权登录，点击取消拒绝登录。',
         },
       ],
     },
@@ -191,7 +191,7 @@ export const TemplateList = [
   },
   {
     topic: MessageTopic.SIGN,
-    name: 'Bind Terminus Space',
+    name: 'Bind Olares Space',
     appId: 'settings',
     appName: 'Settings',
     appTemplateName: 'settings.bind.space',
@@ -200,13 +200,13 @@ export const TemplateList = [
       create: [
         {
           language: 'en-US',
-          title: 'Bind Terminus Space',
-          body: 'Your Terminus Name {{terminusName}} is being used to bind a Terminus Space account. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+          title: 'Bind Olares Space',
+          body: 'Your Olares ID {{terminusName}} is being used to bind a Olares Space account. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
         },
         {
           language: 'zh-CN',
-          title: '绑定 Terminus Space',
-          body: '您的 Terminus Name {{terminusName}} 正在被用于创建 Terminus Space 账户。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
+          title: '绑定 Olares Space',
+          body: '您的 Olares ID {{terminusName}} 正在被用于创建 Olares Space 账户。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
         },
       ],
     },
@@ -253,12 +253,12 @@ export const TemplateList = [
         {
           language: 'en-US',
           title: 'Bind New Ethereum Address',
-          body: 'Your Terminus Name {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+          body: 'Your Olares ID {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
         },
         {
           language: 'zh-CN',
           title: '绑定新的以太坊地址',
-          body: '您的 Terminus Name {{terminusName}} 正被用于授权完成  {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
+          body: '您的 Olares ID {{terminusName}} 正被用于授权完成  {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
         },
       ],
     },
@@ -279,12 +279,12 @@ export const TemplateList = [
         {
           language: 'en-US',
           title: 'Unbind Ethereum Address',
-          body: 'Your Terminus Name {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+          body: 'Your Olares ID {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
         },
         {
           language: 'zh-CN',
           title: '取消绑定以太坊地址',
-          body: '您的 Terminus Name {{terminusName}} 正被用于授权完成 {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。.',
+          body: '您的 Olares ID {{terminusName}} 正被用于授权完成 {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。.',
         },
       ],
     },
@@ -305,12 +305,12 @@ export const TemplateList = [
         {
           language: 'en-US',
           title: 'Bind NFT Avatar',
-          body: 'Your Terminus Name {{terminusName}} is applying to bind an NFT avatar, please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
+          body: 'Your Olares ID {{terminusName}} is applying to bind an NFT avatar, please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.',
         },
         {
           language: 'zh-CN',
           title: '绑定 NFT 头像',
-          body: '您的 Terminus Name {{terminusName}} 正在被用于绑定 NFT 头像。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
+          body: '您的 Olares ID {{terminusName}} 正在被用于绑定 NFT 头像。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。',
         },
       ],
     },
