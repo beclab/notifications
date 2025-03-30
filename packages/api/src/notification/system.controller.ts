@@ -1,21 +1,14 @@
 import { Controller, Post, Body, Logger, HttpCode } from '@nestjs/common';
 
 import { Result, returnSucceed } from '@bytetrade/core';
-import { JobService } from './job.service';
 import { TemplateService } from './template.service';
 import { KubeSphereNotification, Payload } from './global';
-import { NotifyPolicyService } from './notify.policy.service';
-import { NotifyPolicy } from '@notifications/database';
 
 @Controller('/notification/system')
 export class SystemController {
   private readonly logger = new Logger(SystemController.name);
 
-  constructor(
-    private readonly jobService: JobService,
-    private readonly templateService: TemplateService,
-    private readonly notifyPolicyService: NotifyPolicyService,
-  ) {}
+  constructor(private readonly templateService: TemplateService) {}
 
   async handleNoTemplate(payload: Payload): Promise<Result<null>> {
     if (payload.eventType == 'user.login') {
@@ -26,27 +19,20 @@ export class SystemController {
       }
       this.logger.debug(template);
 
-      const notifyPolicy: NotifyPolicy =
-        await this.notifyPolicyService.findDefault();
-      if (!notifyPolicy) {
-        this.logger.warn('default policy template not found');
-        return returnSucceed(null);
-      }
-      this.logger.debug(notifyPolicy);
-
-      this.jobService.processOneJob({
-        templateId: template.id,
-        notifyPolicyId: notifyPolicy.id,
-        language: this.jobService.language,
-        rawMessage: {
-          vars: {
-            time: new Date().toLocaleString(),
-            username: payload.eventData.user,
-            device: '',
-            location: '',
-          },
-        },
-      });
+      // this.jobService.processOneJob({
+      //   templateId: template.id,
+      //   user: user,
+      //   //  notifyPolicyId: notifyPolicy.id,
+      //   language: this.jobService.language,
+      //   rawMessage: {
+      //     vars: {
+      //       time: new Date().toLocaleString(),
+      //       username: payload.eventData.user,
+      //       device: '',
+      //       location: '',
+      //     },
+      //   },
+      // });
     } else if (payload.eventType == 'app.install') {
       //
     } else {
@@ -57,6 +43,7 @@ export class SystemController {
   @Post('/push')
   @HttpCode(200)
   async push(@Body() body: KubeSphereNotification): Promise<Result<null>> {
+    this.logger.log('push');
     this.logger.log(body);
 
     try {
@@ -64,34 +51,20 @@ export class SystemController {
         const payload: Payload = JSON.parse(body.commonLabels.payload);
         this.logger.log(payload.eventType);
 
-        const template = await this.templateService.findTemplate(
-          payload.eventType,
-        );
-        if (!template) {
-          this.logger.warn('template not found ' + payload.eventType);
-          return await this.handleNoTemplate(payload);
-        }
-        this.logger.debug(template);
+        // const template = await this.templateService.findTemplate(
+        //   payload.eventType,
+        // );
+        // if (!template) {
+        //   this.logger.warn('template not found ' + payload.eventType);
+        //   return await this.handleNoTemplate(payload);
+        // }
+        // this.logger.debug(template);
 
-        let notifyPolicy: NotifyPolicy = null;
-        if (template.notifyGroup == '') {
-          notifyPolicy = await this.notifyPolicyService.findDefault();
-        } else {
-          notifyPolicy = await this.notifyPolicyService.findByName(
-            template.notifyGroup,
-          );
-        }
-        if (!notifyPolicy) {
-          this.logger.warn('default policy template not found');
-          return returnSucceed(null);
-        }
-
-        this.jobService.processOneJob({
-          templateId: template.id,
-          notifyPolicyId: notifyPolicy.id,
-          language: this.jobService.language,
-          rawMessage: JSON.parse(body.commonAnnotations.message),
-        });
+        // // this.natsService.pushMessage(
+        // //   templateId: template.id,
+        // //   user: user,
+        // //   payload,
+        // // );
       } else {
         this.logger.warn('error type' + body.commonLabels.type);
       }

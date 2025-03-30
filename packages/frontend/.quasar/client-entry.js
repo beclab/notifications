@@ -45,9 +45,6 @@ import { addPreFetchHooks } from './client-prefetch.js'
 
 
 
-console.info('[Quasar] Running SPA.')
-
-
 
 const publicPath = `/`
 

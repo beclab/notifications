@@ -1,88 +1,5 @@
-import {
-  SenderType,
-  RecipientType,
-  ActiveStatus,
-} from '@notifications/database';
+import { ActiveStatus, Level } from '@notifications/database';
 import { MessageTopic } from '@bytetrade/core';
-
-export const SenderList = [
-  {
-    sender: {
-      name: 'TermiPass',
-      type: SenderType.Application,
-      app: 'vault',
-      recipientType: RecipientType.Firebase,
-      isEditable: false,
-      user: '',
-      status: ActiveStatus.Active,
-    },
-    credential: {
-      appId: 'vault',
-      appName: 'TermiPass',
-      group: 'service.vault',
-      dataType: 'notification',
-      op: 'Create',
-      url: '/system-server/v1alpha1/notification/service.vault/v1',
-    },
-  },
-  {
-    sender: {
-      name: 'Desktop',
-      type: SenderType.Application,
-      app: 'desktop',
-      recipientType: RecipientType.Firebase,
-      isEditable: false,
-      user: '',
-      status: ActiveStatus.Active,
-    },
-    credential: {
-      appId: 'desktop',
-      appName: 'Desktop',
-      group: 'service.desktop',
-      dataType: 'notification',
-      op: 'Create',
-      url: '/system-server/v1alpha1/notification/service.desktop/v1',
-    },
-  },
-];
-
-export const RecipientsList = [
-  {
-    name: 'TermiPass',
-    type: RecipientType.Firebase,
-    isEditable: false,
-    user: '',
-    status: ActiveStatus.Active,
-  },
-  {
-    name: 'Desktop',
-    type: RecipientType.NoNeed,
-    isEditable: false,
-    user: '',
-    status: ActiveStatus.Active,
-  },
-];
-
-export const NotifyPolicyList = [
-  {
-    name: 'TermiPassAndDesktop',
-    isDefault: true,
-    user: '',
-    status: ActiveStatus.Active,
-  },
-  {
-    name: 'TermiPass',
-    isDefault: false,
-    user: '',
-    status: ActiveStatus.Active,
-  },
-  {
-    name: 'Desktop',
-    isDefault: false,
-    user: '',
-    status: ActiveStatus.Active,
-  },
-];
 
 export const TemplateList = [
   {
@@ -90,7 +7,7 @@ export const TemplateList = [
     name: 'Login',
     appId: 'system',
     appName: 'System',
-    appTemplateName: 'login',
+    appTemplateId: 'login',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -107,8 +24,9 @@ export const TemplateList = [
       ],
     },
     variables: ['username', 'device', 'time', 'location'],
-    notifyGroup: 'TermiPassAndDesktop',
+    level: Level.Info,
     user: '',
+    isSystem: true,
     status: ActiveStatus.Active,
   },
   {
@@ -116,7 +34,7 @@ export const TemplateList = [
     name: 'Vault Updated',
     appId: 'vault',
     appName: 'Vault',
-    appTemplateName: 'vault.account.update',
+    appTemplateId: 'vault.account.update',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -133,8 +51,9 @@ export const TemplateList = [
       ],
     },
     variables: [''],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Info,
     status: ActiveStatus.Active,
   },
   {
@@ -142,7 +61,7 @@ export const TemplateList = [
     name: 'Vault Updated',
     appId: 'vault',
     appName: 'Vault',
-    appTemplateName: 'vault.org.update',
+    appTemplateId: 'vault.org.update',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -159,8 +78,9 @@ export const TemplateList = [
       ],
     },
     variables: ['org_id'],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Info,
     status: ActiveStatus.Active,
   },
   {
@@ -168,7 +88,7 @@ export const TemplateList = [
     name: 'Login Olares Web',
     appId: 'system',
     appName: 'System',
-    appTemplateName: 'system.second.verification',
+    appTemplateId: 'system.second.verification',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -185,8 +105,9 @@ export const TemplateList = [
       ],
     },
     variables: ['terminusName'],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Sign,
     status: ActiveStatus.Active,
   },
   {
@@ -194,7 +115,7 @@ export const TemplateList = [
     name: 'Bind Olares Space',
     appId: 'settings',
     appName: 'Settings',
-    appTemplateName: 'settings.bind.space',
+    appTemplateId: 'settings.bind.space',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -211,8 +132,9 @@ export const TemplateList = [
       ],
     },
     variables: ['terminusName'],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Sign,
     status: ActiveStatus.Active,
   },
   {
@@ -220,12 +142,13 @@ export const TemplateList = [
     name: 'Cancel Sign',
     appId: 'settings',
     appName: 'Settings',
-    appTemplateName: 'settings.cancel.sign',
+    appTemplateId: 'settings.cancel.sign',
     defaultLanguage: 'en-US',
     content: {},
     variables: [],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Sign,
     status: ActiveStatus.Active,
   },
   {
@@ -233,12 +156,13 @@ export const TemplateList = [
     name: 'Cancel Sign',
     appId: 'system',
     appName: 'System',
-    appTemplateName: 'system.cancel.sign',
+    appTemplateId: 'system.cancel.sign',
     defaultLanguage: 'en-US',
     content: {},
     variables: [],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Sign,
     status: ActiveStatus.Active,
   },
   {
@@ -246,7 +170,7 @@ export const TemplateList = [
     name: 'Bind New Ethereum Address',
     appId: 'settings',
     appName: 'Settings',
-    appTemplateName: 'settings.bind.ethereum',
+    appTemplateId: 'settings.bind.ethereum',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -263,8 +187,9 @@ export const TemplateList = [
       ],
     },
     variables: ['terminusName', 'address'],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Sign,
     status: ActiveStatus.Active,
   },
   {
@@ -272,7 +197,7 @@ export const TemplateList = [
     name: 'Remove Bind Ethereum Address',
     appId: 'settings',
     appName: 'Settings',
-    appTemplateName: 'settings.unbind.ethereum',
+    appTemplateId: 'settings.unbind.ethereum',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -289,8 +214,9 @@ export const TemplateList = [
       ],
     },
     variables: ['terminusName', 'address'],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Sign,
     status: ActiveStatus.Active,
   },
   {
@@ -298,7 +224,7 @@ export const TemplateList = [
     name: 'Bind NFT Avatar',
     appId: 'profile',
     appName: 'Profile',
-    appTemplateName: 'profile.bind.nft',
+    appTemplateId: 'profile.bind.nft',
     defaultLanguage: 'en-US',
     content: {
       create: [
@@ -315,8 +241,9 @@ export const TemplateList = [
       ],
     },
     variables: ['terminusName'],
-    notifyGroup: 'TermiPass',
     user: '',
+    isSystem: true,
+    level: Level.Sign,
     status: ActiveStatus.Active,
   },
 ];

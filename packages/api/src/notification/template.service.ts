@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { Template, TemplateContent } from '@notifications/database';
 
 @Injectable()
 export class TemplateService {
+  private readonly logger = new Logger(TemplateService.name);
   constructor(private prisma: PrismaService) {}
 
   async create(
@@ -26,16 +27,30 @@ export class TemplateService {
       }
     }
 
+    const res = await this.findTemplateByApplicationIDandApplicationTemplateId(
+      template.appId,
+      template.appTemplateId,
+    );
+    if (res) {
+      this.logger.warn(
+        'template exists ',
+        template.appId,
+        template.appTemplateId,
+      );
+      return res;
+    }
+
     return this.prisma.template.create({
       data: {
         topic: template.topic,
         name: template.name,
         appId: template.appId,
         appName: template.appName,
-        appTemplateName: template.appTemplateName,
+        appTemplateId: template.appTemplateId,
         defaultLanguage: template.defaultLanguage,
-        notifyGroup: template.notifyGroup,
         user: template.user,
+        isSystem: template.isSystem,
+        level: template.level,
         status: template.status,
         variables: template.variables,
         content: {
@@ -57,15 +72,37 @@ export class TemplateService {
     return this.prisma.template.delete({ where: { id } });
   }
 
-  async findTemplate(name: string): Promise<Template> {
-    return this.prisma.template.findFirst({
-      where: { appTemplateName: name },
+  // async findTemplate(name: string): Promise<Template> {
+  //   return this.prisma.template.findFirst({
+  //     where: { appTemplateName: name },
+  //   });
+  // }
+
+  async isTemplateExits(
+    appId: string,
+    appTemplateId: string,
+  ): Promise<boolean> {
+    const res = await this.prisma.template.findFirst({
+      where: { appId, appTemplateId },
+    });
+    if (!res) {
+      return false;
+    }
+    return true;
+  }
+
+  async findTemplateByApplicationIDandApplicationTemplateId(
+    appId: string,
+    appTemplateId: string,
+  ): Promise<Template> {
+    return await this.prisma.template.findFirst({
+      where: { appId, appTemplateId },
     });
   }
 
   async findSystemTemplate(name: string): Promise<Template> {
     return this.prisma.template.findFirst({
-      where: { appName: 'System', appTemplateName: name },
+      where: { isSystem: true, name },
     });
   }
 
