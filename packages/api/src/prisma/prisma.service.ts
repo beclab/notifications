@@ -24,6 +24,15 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
     }
 
     for (const t of TemplateList) {
+      const r = this.template.findFirst({
+        where: {
+          appId: t.appId,
+          appTemplateId: t.appTemplateId,
+        },
+      });
+      if (r) {
+        continue;
+      }
       await this.template.create({
         data: t,
       });
