@@ -30,7 +30,7 @@ jobs:
               uses: docker/build-push-action@v3
               with:
                 context: .
-                file: Dockerfile.api
+                file: docker/Dockerfile
                 push: true
                 tags: beclab/notifications-api:${{ steps.get-latest-tag.outputs.tag }}
                 platforms: linux/amd64,linux/arm64
