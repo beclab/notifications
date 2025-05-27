@@ -8,8 +8,8 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { SystemController } from './system.controller';
 
 @Module({
-  imports: [PrismaModule, ScheduleModule.forRoot()],
-  controllers: [NotificationController, SystemController],
-  providers: [TemplateService, TemplateContentService, UsersService],
+	imports: [PrismaModule, ScheduleModule.forRoot()],
+	controllers: [NotificationController, SystemController],
+	providers: [TemplateService, TemplateContentService, UsersService]
 })
 export class NotificationModule {}

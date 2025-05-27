@@ -19,12 +19,12 @@ RUN npm install
 RUN npm run generate
 RUN npm run build
 
-
-FROM node:24.0.2-slim
+FROM node:24.0.2-alpine
 
 EXPOSE 3010
 
 WORKDIR /settings-server
+
 
 COPY --from=server_dist /server_dist/dist/node_modules ./node_modules
 COPY --from=server_dist /server_dist/dist/package.json ./package.json
@@ -33,8 +33,6 @@ COPY --from=server_dist /server_dist/dist/prisma ./prisma
 
 RUN npm install
 
-RUN npm run generate
-
-CMD ["sh", "-c", "npm run db:migrate:deploy && npm run server"]
+CMD ["sh", "-c", "npx prisma migrate deploy && npm run server"]
 
 
