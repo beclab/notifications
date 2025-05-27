@@ -12,67 +12,67 @@ const NATS_SUBJECT_SYSTEM_USERS = process.env.NATS_SUBJECT_SYSTEM_USERS || '';
 const nats_url = NATS_HOST + ':' + NATS_PORT;
 
 export function getNATS(): boolean {
-  const value = process.env.NATS;
-  return value?.toLowerCase() !== 'false';
+	const value = process.env.NATS;
+	return value?.toLowerCase() !== 'false';
 }
 
 @Injectable()
 export class UsersService implements OnModuleDestroy {
-  private readonly logger = new Logger(UsersService.name);
-  private natsClient: NatsConnection;
+	private readonly logger = new Logger(UsersService.name);
+	private natsClient: NatsConnection;
 
-  async onModuleInit() {
-    if (!getNATS()) {
-      return;
-    }
+	async onModuleInit() {
+		if (!getNATS()) {
+			return;
+		}
 
-    await this.getUsers();
+		await this.getUsers();
 
-    (async () => {
-      console.log('nats username:', NATS_USERNAME);
-      console.log('nats password:', NATS_PASSWORD);
-      this.natsClient = await connect({
-        servers: nats_url,
-        user: NATS_USERNAME,
-        pass: NATS_PASSWORD,
-      });
-      const sub = this.natsClient.subscribe(NATS_SUBJECT_SYSTEM_USERS);
+		(async () => {
+			console.log('nats username:', NATS_USERNAME);
+			console.log('nats password:', NATS_PASSWORD);
+			this.natsClient = await connect({
+				servers: nats_url,
+				user: NATS_USERNAME,
+				pass: NATS_PASSWORD
+			});
+			const sub = this.natsClient.subscribe(NATS_SUBJECT_SYSTEM_USERS);
 
-      const sc = StringCodec();
+			const sc = StringCodec();
 
-      for await (const m of sub) {
-        console.log(`[${sub.getProcessed()}]: ${sc.decode(m.data)}`);
+			for await (const m of sub) {
+				console.log(`[${sub.getProcessed()}]: ${sc.decode(m.data)}`);
 
-        // await this.socketService.sendMsg(sc.decode(m.data));
-      }
-    })();
-  }
+				// await this.socketService.sendMsg(sc.decode(m.data));
+			}
+		})();
+	}
 
-  onModuleDestroy(): void {
-    this.natsClient.drain();
-  }
+	onModuleDestroy(): void {
+		this.natsClient.drain();
+	}
 
-  async getUsers() {
-    try {
-      const response: any = await axios.get(
-        'http://ks-apiserver.kubesphere-system/kapis/iam.kubesphere.io/v1alpha2/lldap/users',
-      );
-      if (response.status !== 200) {
-        throw new Error(response.statusText);
-      }
+	async getUsers() {
+		try {
+			const response: any = await axios.get(
+				'http://ks-apiserver.kubesphere-system/kapis/iam.kubesphere.io/v1alpha2/lldap/users'
+			);
+			if (response.status !== 200) {
+				throw new Error(response.statusText);
+			}
 
-      console.log('getUsers', response.data);
-    } catch (e) {
-      this.logger.error(e);
-    }
-  }
+			console.log('getUsers', response.data);
+		} catch (e) {
+			this.logger.error(e);
+		}
+	}
 
-  async pushTemplate(
-    userid: string,
-    templateid: string,
-    data: any,
-  ): Promise<void> {
-    console.log('pushTemplate', userid, templateid, data);
-    return;
-  }
+	async pushTemplate(
+		userid: string,
+		templateid: string,
+		data: any
+	): Promise<void> {
+		console.log('pushTemplate', userid, templateid, data);
+		return;
+	}
 }

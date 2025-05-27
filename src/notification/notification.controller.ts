@@ -31,25 +31,43 @@ export class NotificationController {
 		return returnSucceed(await this.templateService.findAll());
 	}
 
-	@Post('/templateByAppNameAndName')
+	@Post('/findTemplateByName')
 	async GetTemplateByAppNameAndName(
 		@Req() request: Request,
-		@Body() data: { name: string; token: string }
+		@Body() data: { appName: string; templateName: string }
 	): Promise<Result<Template>> {
-		const { name, token } = data;
+		const { appName, templateName } = data;
 		this.logger.log(
-			`Fetching template by app name: ${name} and token: ${token}`
+			`Fetching template by app name: ${appName} and template name: ${templateName}`
 		);
 
-		const template = await this.templateService.findTemplate(name, token);
+		const template = await this.templateService.findTemplate(
+			appName,
+			templateName
+		);
 		if (!template) {
 			this.logger.warn(
-				`Template not found for app name: ${name} and token: ${token}`
+				`Fetching template by app name: ${appName} and template name: ${templateName}`
 			);
 			return returnError(100, 'Template not found');
 		}
 
 		return returnSucceed(template);
+	}
+
+	@Get('/templateContent/:id')
+	async getTemplateContentById(
+		@Param('id') id: number
+	): Promise<Result<Template[]>> {
+		console.log('getTemplateContentById', id);
+		try {
+			return returnSucceed(
+				await this.templateContentService.findByTemplateId(id)
+			);
+		} catch (error) {
+			console.error('Error fetching template content:', error);
+			return returnError(100, 'TemplateContent get failed');
+		}
 	}
 
 	@Post('/template')

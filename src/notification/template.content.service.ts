@@ -16,6 +16,12 @@ export class TemplateContentService {
 		return this.prisma.templateContent.findMany({ where: {} });
 	}
 
+	async findByTemplateId(id: number): Promise<TemplateContent[]> {
+		return this.prisma.templateContent.findMany({
+			where: { templateId: id }
+		});
+	}
+
 	async findOne(id: number): Promise<TemplateContent> {
 		return this.prisma.templateContent.findUnique({ where: { id } });
 	}
