@@ -74,6 +74,11 @@ const config = {
 					from: 'node_modules/@prisma/client',
 					to: 'node_modules/@prisma/client'
 				},
+				// },
+				{
+					from: 'node_modules/.prisma',
+					to: 'node_modules/.prisma'
+				},
 				{
 					from: 'prisma',
 					to: 'prisma'
@@ -108,6 +113,7 @@ function createPackage() {
 		dependencies: externals_dependencies,
 		scripts: {
 			server: 'node main.js',
+			generate: 'prisma generate',
 			'db:migrate:deploy': 'prisma migrate deploy'
 		}
 	};
