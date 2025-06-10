@@ -8,7 +8,6 @@ const NATS_HOST = process.env.NATS_HOST || '';
 const NATS_PORT = process.env.NATS_PORT || 4222;
 const NATS_USERNAME = process.env.NATS_USERNAME || '';
 const NATS_PASSWORD = process.env.NATS_PASSWORD || '';
-const NATS_SUBJECT_SYSTEM_USERS = process.env.NATS_SUBJECT_SYSTEM_USERS || '';
 const nats_url = NATS_HOST + ':' + NATS_PORT;
 
 export function getNATS(): boolean {
@@ -21,6 +20,55 @@ export class UsersService implements OnModuleDestroy {
 	private readonly logger = new Logger(UsersService.name);
 	private natsClient: NatsConnection;
 
+	private sc;
+
+	async handlesMessage(
+		apps: {
+			subject: string;
+		}[]
+	) {
+		apps.forEach((app) => {
+			if (app.subject.length == 0) {
+				return;
+			}
+			const sub = this.natsClient.subscribe(app.subject);
+
+			(async () => {
+				try {
+					for await (const m of sub) {
+						let payload = this.sc.decode(m.data);
+						try {
+							payload = JSON.parse(payload);
+						} catch (error) {
+							this.logger.log(
+								'payload not json, use string ===>',
+								payload
+							);
+						}
+						if (
+							app.subject == process.env.NATS_SUBJECT_SYSTEM_USERS
+						) {
+							//console.log
+							await this.getUsers();
+						} else if (
+							app.subject ==
+							process.env.NATS_SUBJECT_USER_NOTIFICATION
+						) {
+						} else if (
+							app.subject ==
+							process.env.NATS_SUBJECT_SYSTEM_APPLICATION
+						) {
+							//console.log
+						} else {
+							//console.log
+						}
+					}
+				} catch (error) {
+					this.logger.error('error ===>', error);
+				}
+			})();
+		});
+	}
 	async onModuleInit() {
 		if (!getNATS()) {
 			return;
@@ -28,24 +76,30 @@ export class UsersService implements OnModuleDestroy {
 
 		await this.getUsers();
 
-		(async () => {
-			console.log('nats username:', NATS_USERNAME);
-			console.log('nats password:', NATS_PASSWORD);
+		try {
 			this.natsClient = await connect({
 				servers: nats_url,
 				user: NATS_USERNAME,
 				pass: NATS_PASSWORD
 			});
-			const sub = this.natsClient.subscribe(NATS_SUBJECT_SYSTEM_USERS);
+		} catch (error) {
+			this.logger.error('error connecting to NATS:', error);
+			return;
+		}
+		this.sc = StringCodec();
 
-			const sc = StringCodec();
-
-			for await (const m of sub) {
-				console.log(`[${sub.getProcessed()}]: ${sc.decode(m.data)}`);
-
-				// await this.socketService.sendMsg(sc.decode(m.data));
+		const subjects = [
+			{
+				subject: process.env.NATS_SUBJECT_USER_NOTIFICATION || ''
+			},
+			{
+				subject: process.env.NATS_SUBJECT_SYSTEM_USERS || ''
+			},
+			{
+				subject: process.env.NATS_SUBJECT_SYSTEM_APPLICATION || ''
 			}
-		})();
+		];
+		this.handlesMessage(subjects);
 	}
 
 	onModuleDestroy(): void {
