@@ -69,13 +69,19 @@ export class UsersService implements OnModuleDestroy {
 						} else if (
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_GROUPS
-						) else if (
+						) {
+						}else if (
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_APPLICATION
-						) else if (
+						) {
+
+						}
+						else if (
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_VAULT
-						) else {
+						) {
+
+						} else {
 							//console.log
 						}  
 					}
