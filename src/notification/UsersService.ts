@@ -54,9 +54,7 @@ export class UsersService implements OnModuleDestroy {
 								payload
 							);
 						}
-						if (app.subject == process.env.NATS_SUBJECT) {
-							//
-						} else if (
+						if (
 							app.subject == process.env.NATS_SUBJECT_SYSTEM_USERS
 						) {
 							await this.getUsers();
@@ -101,9 +99,9 @@ export class UsersService implements OnModuleDestroy {
 		this.sc = StringCodec();
 
 		const subjects = [
-			{
-				subject: process.env.NATS_SUBJECT || ''
-			},
+			// {
+			// 	subject: process.env.NATS_SUBJECT || ''
+			// },
 			{
 				subject: process.env.NATS_SUBJECT_SYSTEM_USERS || ''
 			},
