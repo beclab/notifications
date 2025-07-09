@@ -15,11 +15,10 @@ export function getNATS(): boolean {
 	return value?.toLowerCase() !== 'false';
 }
 
-
 interface User {
-	username:string;
-	email:string;
-	groups:string[];
+	username: string;
+	email: string;
+	groups: string[];
 }
 
 @Injectable()
@@ -29,8 +28,7 @@ export class UsersService implements OnModuleDestroy {
 
 	private sc;
 
-
-	public users:User[] = [];
+	public users: User[] = [];
 
 	async handlesMessage(
 		apps: {
@@ -56,34 +54,26 @@ export class UsersService implements OnModuleDestroy {
 								payload
 							);
 						}
-						if (
-							app.subject == process.env.NATS_SUBJECT
-						) {
+						if (app.subject == process.env.NATS_SUBJECT) {
 							//
-							
 						} else if (
-							app.subject ==
-							process.env.NATS_SUBJECT_SYSTEM_USERS
+							app.subject == process.env.NATS_SUBJECT_SYSTEM_USERS
 						) {
 							await this.getUsers();
 						} else if (
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_GROUPS
 						) {
-						}else if (
+						} else if (
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_APPLICATION
 						) {
-
-						}
-						else if (
-							app.subject ==
-							process.env.NATS_SUBJECT_SYSTEM_VAULT
+						} else if (
+							app.subject == process.env.NATS_SUBJECT_SYSTEM_VAULT
 						) {
-
 						} else {
 							//console.log
-						}  
+						}
 					}
 				} catch (error) {
 					this.logger.error('error ===>', error);
@@ -144,9 +134,9 @@ export class UsersService implements OnModuleDestroy {
 			}
 
 			const us: User[] = [];
-			for( const user of response.data.items){
-					us.push(user);
-					console.log('user', user);
+			for (const user of response.data.items) {
+				us.push(user);
+				console.log('user', user);
 			}
 
 			this.users = us;
