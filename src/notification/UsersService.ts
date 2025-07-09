@@ -15,12 +15,22 @@ export function getNATS(): boolean {
 	return value?.toLowerCase() !== 'false';
 }
 
+
+interface User {
+	username:string;
+	email:string;
+	groups:string[];
+}
+
 @Injectable()
 export class UsersService implements OnModuleDestroy {
 	private readonly logger = new Logger(UsersService.name);
 	private natsClient: NatsConnection;
 
 	private sc;
+
+
+	public users:User[] = [];
 
 	async handlesMessage(
 		apps: {
@@ -37,6 +47,7 @@ export class UsersService implements OnModuleDestroy {
 				try {
 					for await (const m of sub) {
 						let payload = this.sc.decode(m.data);
+						console.log('payload', payload);
 						try {
 							payload = JSON.parse(payload);
 						} catch (error) {
@@ -46,22 +57,27 @@ export class UsersService implements OnModuleDestroy {
 							);
 						}
 						if (
-							app.subject == process.env.NATS_SUBJECT_SYSTEM_USERS
+							app.subject == process.env.NATS_SUBJECT
 						) {
-							//console.log
+							//
+							
+						} else if (
+							app.subject ==
+							process.env.NATS_SUBJECT_SYSTEM_USERS
+						) {
 							await this.getUsers();
 						} else if (
 							app.subject ==
-							process.env.NATS_SUBJECT_USER_NOTIFICATION
-						) {
-						} else if (
+							process.env.NATS_SUBJECT_SYSTEM_GROUPS
+						) else if (
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_APPLICATION
-						) {
+						) else if (
+							app.subject ==
+							process.env.NATS_SUBJECT_SYSTEM_VAULT
+						) else {
 							//console.log
-						} else {
-							//console.log
-						}
+						}  
 					}
 				} catch (error) {
 					this.logger.error('error ===>', error);
@@ -90,13 +106,19 @@ export class UsersService implements OnModuleDestroy {
 
 		const subjects = [
 			{
-				subject: process.env.NATS_SUBJECT_USER_NOTIFICATION || ''
+				subject: process.env.NATS_SUBJECT || ''
 			},
 			{
 				subject: process.env.NATS_SUBJECT_SYSTEM_USERS || ''
 			},
 			{
+				subject: process.env.NATS_SUBJECT_SYSTEM_GROUPS || ''
+			},
+			{
 				subject: process.env.NATS_SUBJECT_SYSTEM_APPLICATION || ''
+			},
+			{
+				subject: process.env.NATS_SUBJECT_SYSTEM_VAULT || ''
 			}
 		];
 		this.handlesMessage(subjects);
@@ -115,7 +137,13 @@ export class UsersService implements OnModuleDestroy {
 				throw new Error(response.statusText);
 			}
 
-			console.log('getUsers', response.data);
+			const us: User[] = [];
+			for( const user of response.data.items){
+					us.push(user);
+					console.log('user', user);
+			}
+
+			this.users = us;
 		} catch (e) {
 			this.logger.error(e);
 		}
