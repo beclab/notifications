@@ -2,7 +2,7 @@ import { Injectable, OnModuleDestroy, Logger } from '@nestjs/common';
 //import { SocketService } from './pgsocket.service';
 import axios from 'axios';
 import { NatsConnection, StringCodec, connect } from 'nats';
-//import { get } from 'http';
+import { TemplateService } from './template.service';
 
 const NATS_HOST = process.env.NATS_HOST || '';
 const NATS_PORT = process.env.NATS_PORT || 4222;
@@ -30,6 +30,17 @@ export class UsersService implements OnModuleDestroy {
 
 	public users: User[] = [];
 
+	constructor(private readonly templateService: TemplateService) {}
+
+	private async natsClientPublish(subject: string, data: any) {
+		if (!this.natsClient) {
+			this.logger.error('NATS client not initialized');
+			return;
+		}
+		this.logger.log(`Publishing to NATS subject: ${subject}`, data);
+		this.natsClient.publish(subject, this.sc.encode(JSON.stringify(data)));
+	}
+
 	async handlesMessage(
 		apps: {
 			subject: string;
@@ -44,20 +55,60 @@ export class UsersService implements OnModuleDestroy {
 			(async () => {
 				try {
 					for await (const m of sub) {
-						let payload = this.sc.decode(m.data);
-						console.log('payload', payload);
+						let data = this.sc.decode(m.data);
+						console.log('payload', data);
 						try {
-							payload = JSON.parse(payload);
+							data = JSON.parse(data);
 						} catch (error) {
 							this.logger.log(
 								'payload not json, use string ===>',
-								payload
+								data
 							);
 						}
 						if (
 							app.subject == process.env.NATS_SUBJECT_SYSTEM_USERS
 						) {
-							await this.getUsers();
+							//
+							if (data.topic == 'Login') {
+								this.logger.log('Login event received', data);
+
+								const user = data.payload.user;
+								//const ip = data.payload.ip;
+
+								// const template =
+								// 	await this.templateService.findSystemTemplate(
+								// 		'login'
+								// 	);
+
+								// if (!template) {
+								// 	this.logger.warn(
+								// 		'login template not found'
+								// 	);
+								// 	return;
+								// }
+								const subject = 'os.user.' + user;
+								await this.natsClientPublish(subject, {
+									eventType: 'login',
+									payload: data.payload
+								});
+							} else if (data.topic == 'onFirstFactor') {
+								this.logger.log(
+									'onFirstFactor event received',
+									data
+								);
+
+								const user = data.payload.user;
+
+								const subject = 'os.user.' + user;
+								await this.natsClientPublish(subject, {
+									eventType: 'system.second.verification',
+									payload: data.payload
+								});
+							} else if (data.topic == 'Logout') {
+								this.logger.log('Logout event received', data);
+							} else {
+								await this.getUsers();
+							}
 						} else if (
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_GROUPS
