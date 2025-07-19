@@ -1,4 +1,9 @@
-import { Injectable, OnModuleDestroy, Logger } from '@nestjs/common';
+import {
+	Injectable,
+	OnModuleDestroy,
+	OnModuleInit,
+	Logger
+} from '@nestjs/common';
 //import { SocketService } from './pgsocket.service';
 import axios from 'axios';
 import { NatsConnection, StringCodec, connect } from 'nats';
@@ -22,7 +27,7 @@ interface User {
 }
 
 @Injectable()
-export class UsersService implements OnModuleDestroy {
+export class UsersService implements OnModuleDestroy, OnModuleInit {
 	private readonly logger = new Logger(UsersService.name);
 	private natsClient: NatsConnection;
 
@@ -175,9 +180,11 @@ export class UsersService implements OnModuleDestroy {
 				subject: process.env.NATS_SUBJECT_SYSTEM_VAULT || ''
 			}
 		];
-		this.handlesMessage(subjects);
+		await this.handlesMessage(subjects);
 
 		const templates = await this.templateService.findAll();
+		this.logger.log(`Found ${templates.length} templates in the system`);
+
 		for (const template of templates) {
 			// Do something with each template
 			console.log(template);
