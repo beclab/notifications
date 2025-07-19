@@ -14,16 +14,16 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'New user login',
-					body: 'At {{time}}, {{username}} logged in to Olares.'
+					body: 'At {{time}}, {{user}} logged in to Olares.'
 				},
 				{
 					language: 'zh-CN',
 					title: '新的用户登录',
-					body: '在 {{time}}，{{username}} 登录了 Olares'
+					body: '在 {{time}}，{{user}} 登录了 Olares'
 				}
 			]
 		},
-		variables: ['username', 'device', 'time', 'location'],
+		variables: ['user', 'device', 'time', 'location'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
@@ -92,16 +92,16 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'Log in to Olares',
-					body: 'Your Olares ID {{terminusName}} is being used to log in to Olares. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.'
+					body: 'Your Olares ID {{user}} is being used to log in to Olares. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.'
 				},
 				{
 					language: 'zh-CN',
 					title: 'Olares 登录提醒',
-					body: '您的 Olares ID {{terminusName}} 正在被用于登录 Olares。请确认是否是您本人操作。点击确认以授权登录，点击取消拒绝登录。'
+					body: '您的 Olares ID {{user}} 正在被用于登录 Olares。请确认是否是您本人操作。点击确认以授权登录，点击取消拒绝登录。'
 				}
 			]
 		},
-		variables: ['terminusName'],
+		variables: ['user'],
 		user: '',
 		level: Level.Sign,
 		status: ActiveStatus.Active
