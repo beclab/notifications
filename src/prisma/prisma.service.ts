@@ -26,7 +26,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 		this.logger.log('Update template', TemplateList.length);
 
 		for (const t of TemplateList) {
-			const r = this.template.findFirst({
+			const r = await this.template.findFirst({
 				where: {
 					appId: t.appId,
 					appTemplateId: t.appTemplateId
