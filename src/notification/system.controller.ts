@@ -12,15 +12,14 @@ export class SystemController {
 
 	async handleNoTemplate(payload: Payload): Promise<Result<null>> {
 		if (payload.eventType == 'user.login') {
-			const template = await this.templateService.findSystemTemplate(
-				'login'
-			);
-			if (!template) {
-				this.logger.warn('login template not found');
-				return returnSucceed(null);
-			}
-			this.logger.debug(template);
-
+			// const template = await this.templateService.findSystemTemplate(
+			// 	'login'
+			// );
+			// if (!template) {
+			// 	this.logger.warn('login template not found');
+			// 	return returnSucceed(null);
+			// }
+			// this.logger.debug(template);
 			// this.jobService.processOneJob({
 			//   templateId: template.id,
 			//   user: user,

@@ -32,11 +32,33 @@ export class UsersService implements OnModuleDestroy {
 
 	constructor(private readonly templateService: TemplateService) {}
 
-	private async natsClientPublish(subject: string, data: any) {
+	private async natsClientPublish(
+		user: string,
+		appId: string,
+		appTemplateId: string,
+		payload: any
+	) {
+		const subject = 'os.notification.' + user;
+		const template =
+			await this.templateService.findTemplateByApplicationIDandApplicationTemplateId(
+				appId,
+				appTemplateId
+			);
+		if (!template) {
+			this.logger.warn(
+				`Fetching template by app name: ${appId} and template name: ${appTemplateId}`
+			);
+		}
+
 		if (!this.natsClient) {
 			this.logger.error('NATS client not initialized');
 			return;
 		}
+		const data = {
+			appId: template.appId,
+			appTemplateId: template.appTemplateId,
+			payload: payload
+		};
 		this.logger.log(`Publishing to NATS subject: ${subject}`, data);
 		this.natsClient.publish(subject, this.sc.encode(JSON.stringify(data)));
 	}
@@ -72,53 +94,24 @@ export class UsersService implements OnModuleDestroy {
 							if (data.topic == 'Login') {
 								this.logger.log('Login event received', data);
 
-								const user = data.payload.user;
-								//const ip = data.payload.ip;
-
-								// const template =
-								// 	await this.templateService.findSystemTemplate(
-								// 		'login'
-								// 	);
-
-								// if (!template) {
-								// 	this.logger.warn(
-								// 		'login template not found'
-								// 	);
-								// 	return;
-								// }
-								const subject = 'os.user.' + user;
-								await this.natsClientPublish(subject, {
-									eventType: 'login',
-									payload: data.payload
-								});
-							} else if (data.topic == 'onFirstFactor') {
+								await this.natsClientPublish(
+									data.payload.user,
+									'system',
+									'system.second.verification',
+									data.payload
+								);
+							} else if (data.topic == 'OnFirstFactor') {
 								this.logger.log(
-									'onFirstFactor event received',
+									'OnFirstFactor event received',
 									data
 								);
 
-								const user = data.payload.user;
-
-								const appName = 'system';
-								const templateName =
-									'system.second.verification';
-
-								const template =
-									await this.templateService.findTemplate(
-										appName,
-										templateName
-									);
-								if (!template) {
-									this.logger.warn(
-										`Fetching template by app name: ${appName} and template name: ${templateName}`
-									);
-								}
-
-								const subject = 'os.user.' + user;
-								await this.natsClientPublish(subject, {
-									eventType: 'system.second.verification',
-									payload: data.payload
-								});
+								await this.natsClientPublish(
+									data.payload.user,
+									'system',
+									'login',
+									data.payload
+								);
 							} else if (data.topic == 'Logout') {
 								this.logger.log('Logout event received', data);
 							} else {

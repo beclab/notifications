@@ -100,17 +100,17 @@ export class TemplateService {
 		});
 	}
 
-	async findTemplate(appName: string, name: string): Promise<Template> {
-		return this.prisma.template.findFirst({
-			where: { appName: appName, appTemplateId: name }
-		});
-	}
+	// async findTemplate(appName: string, name: string): Promise<Template> {
+	// 	return this.prisma.template.findFirst({
+	// 		where: { appName: appName, appTemplateId: name }
+	// 	});
+	// }
 
-	async findSystemTemplate(name: string): Promise<Template> {
-		return this.prisma.template.findFirst({
-			where: { appName: 'System', name }
-		});
-	}
+	// async findSystemTemplate(name: string): Promise<Template> {
+	// 	return this.prisma.template.findFirst({
+	// 		where: { appName: 'System', name }
+	// 	});
+	// }
 
 	extractVariablesFromTemplate(template: string) {
 		const variables = [];

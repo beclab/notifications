@@ -34,20 +34,21 @@ export class NotificationController {
 	@Post('/findTemplateByName')
 	async GetTemplateByAppNameAndName(
 		@Req() request: Request,
-		@Body() data: { appName: string; templateName: string }
+		@Body() data: { appId: string; templateId: string }
 	): Promise<Result<Template>> {
-		const { appName, templateName } = data;
+		const { appId, templateId } = data;
 		this.logger.log(
-			`Fetching template by app name: ${appName} and template name: ${templateName}`
+			`Fetching template by app id: ${appId} and template id: ${templateId}`
 		);
 
-		const template = await this.templateService.findTemplate(
-			appName,
-			templateName
-		);
+		const template =
+			await this.templateService.findTemplateByApplicationIDandApplicationTemplateId(
+				appId,
+				templateId
+			);
 		if (!template) {
 			this.logger.warn(
-				`Fetching template by app name: ${appName} and template name: ${templateName}`
+				`Fetching template by app id: ${appId} and template id: ${templateId}`
 			);
 			return returnError(100, 'Template not found');
 		}
