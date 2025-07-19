@@ -48,6 +48,7 @@ export class UsersService implements OnModuleDestroy {
 			this.logger.warn(
 				`Fetching template by app name: ${appId} and template name: ${appTemplateId}`
 			);
+			return;
 		}
 
 		if (!this.natsClient) {
@@ -97,7 +98,7 @@ export class UsersService implements OnModuleDestroy {
 								await this.natsClientPublish(
 									data.payload.user,
 									'system',
-									'system.second.verification',
+									'login',
 									data.payload
 								);
 							} else if (data.topic == 'OnFirstFactor') {
@@ -109,7 +110,7 @@ export class UsersService implements OnModuleDestroy {
 								await this.natsClientPublish(
 									data.payload.user,
 									'system',
-									'login',
+									'system.second.verification',
 									data.payload
 								);
 							} else if (data.topic == 'Logout') {
@@ -175,6 +176,12 @@ export class UsersService implements OnModuleDestroy {
 			}
 		];
 		this.handlesMessage(subjects);
+
+		const templates = await this.templateService.findAll();
+		for (const template of templates) {
+			// Do something with each template
+			console.log(template);
+		}
 	}
 
 	onModuleDestroy(): void {
