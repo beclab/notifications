@@ -23,6 +23,8 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 			await this.template.deleteMany({});
 		}
 
+		this.logger.log('Update template', TemplateList.length);
+
 		for (const t of TemplateList) {
 			const r = this.template.findFirst({
 				where: {
@@ -31,8 +33,15 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 				}
 			});
 			if (r) {
+				this.logger.log(
+					`Template already exists: ${t.appId} - ${t.appTemplateId}`
+				);
 				continue;
 			}
+			this.logger.log(
+				`Creating template: ${t.appId} - ${t.appTemplateId}`
+			);
+			// Create
 			await this.template.create({
 				data: t
 			});
