@@ -57,12 +57,12 @@ export class NotificationController {
 
 	@Get('/templateContent/:id')
 	async getTemplateContentById(
-		@Param('id') id: number
+		@Param('id') id: string
 	): Promise<Result<Template[]>> {
 		console.log('getTemplateContentById', id);
 		try {
 			return returnSucceed(
-				await this.templateContentService.findByTemplateId(id)
+				await this.templateContentService.findByTemplateId(parseInt(id))
 			);
 		} catch (error) {
 			console.error('Error fetching template content:', error);
