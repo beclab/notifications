@@ -56,7 +56,7 @@ export class UsersService implements OnModuleDestroy {
 				try {
 					for await (const m of sub) {
 						let data = this.sc.decode(m.data);
-						console.log('payload', data);
+						console.log('subject payload', app.subject, data);
 						try {
 							data = JSON.parse(data);
 						} catch (error) {
@@ -98,6 +98,21 @@ export class UsersService implements OnModuleDestroy {
 								);
 
 								const user = data.payload.user;
+
+								const appName = 'system';
+								const templateName =
+									'system.second.verification';
+
+								const template =
+									await this.templateService.findTemplate(
+										appName,
+										templateName
+									);
+								if (!template) {
+									this.logger.warn(
+										`Fetching template by app name: ${appName} and template name: ${templateName}`
+									);
+								}
 
 								const subject = 'os.user.' + user;
 								await this.natsClientPublish(subject, {
