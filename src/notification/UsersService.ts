@@ -113,8 +113,8 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								);
 
 								const payload = {
-									id: data.payload.id,
 									...data.payload,
+									id: data.payload.id || data.id,
 									sign: data.payload.sign || data.sign,
 									vars: data.payload.vars || data.vars
 								};
