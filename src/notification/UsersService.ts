@@ -112,11 +112,17 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									data
 								);
 
+								const payload = {
+									...data.payload,
+									sign: data.payload.sign || data.sign,
+									vars: data.payload.vars || data.vars
+								};
+
 								await this.natsClientPublish(
 									data.payload.user,
 									'system',
 									'system.second.verification',
-									data.payload
+									payload
 								);
 							} else if (data.topic == 'Logout') {
 								this.logger.log('Logout event received', data);
