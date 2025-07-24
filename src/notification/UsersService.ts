@@ -100,6 +100,11 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 							if (data.topic == 'Login') {
 								this.logger.log('Login event received', data);
 
+								data.payload.vars = {
+									time: new Date().getTime(),
+									user: data.payload.user
+								};
+
 								await this.natsClientPublish(
 									data.payload.user,
 									'system',
