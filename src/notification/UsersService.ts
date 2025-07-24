@@ -102,9 +102,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 
 								data.payload.vars = {
 									time: new Date().getTime(),
-									user: data.payload.user,
-									location: '',
-									device: ''
+									user: data.payload.user
 								};
 
 								await this.natsClientPublish(
