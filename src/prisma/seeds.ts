@@ -23,7 +23,7 @@ export const TemplateList = [
 				}
 			]
 		},
-		variables: ['user', 'device', 'time', 'location'],
+		variables: ['user', 'time'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
