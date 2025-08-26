@@ -26,6 +26,13 @@ interface User {
 	groups: string[];
 }
 
+function normalizeBoolean(value: string | boolean): boolean {
+	if (typeof value === 'string') {
+		return value.toLowerCase() === 'true';
+	}
+	return Boolean(value); // 如果是布尔值，直接返回
+}
+
 @Injectable()
 export class UsersService implements OnModuleDestroy, OnModuleInit {
 	private readonly logger = new Logger(UsersService.name);
@@ -216,7 +223,9 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 						} else if (app.subject == process.env.NATS_SUBJECT) {
 							const topic = data.topic;
 							const nodeName = data.payload.nodeName;
-							const status = data.payload.status;
+							const status = normalizeBoolean(
+								data.payload.status
+							);
 							console.log(
 								'topic, nodeName, status',
 								topic,
