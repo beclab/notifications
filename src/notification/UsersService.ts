@@ -162,6 +162,53 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 							app.subject ==
 							process.env.NATS_SUBJECT_SYSTEM_APPLICATION
 						) {
+							const user = data.user || '';
+							const opType = data.opType || '';
+							const state = data.state;
+							const appName = data.name || '';
+							if (opType == 'install' && state == 'running') {
+								await this.natsClientPublish(
+									user,
+									'market',
+									'installed',
+									{
+										appName: appName
+									}
+								);
+							} else if (opType == 'stop' && state == 'stopped') {
+								await this.natsClientPublish(
+									user,
+									'market',
+									'stopped',
+									{
+										appName: appName
+									}
+								);
+							} else if (
+								opType == 'resume' &&
+								state == 'running'
+							) {
+								await this.natsClientPublish(
+									user,
+									'market',
+									'resumed',
+									{
+										appName: appName
+									}
+								);
+							} else if (
+								opType == 'uninstall' &&
+								state == 'uninstalled'
+							) {
+								await this.natsClientPublish(
+									user,
+									'market',
+									'uninstalled',
+									{
+										appName: appName
+									}
+								);
+							}
 						} else if (
 							app.subject == process.env.NATS_SUBJECT_SYSTEM_VAULT
 						) {

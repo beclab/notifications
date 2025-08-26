@@ -237,263 +237,263 @@ export const TemplateList = [
 		status: ActiveStatus.Active
 	},
 	{
-        topic: MessageTopic.Notification,
-        name: 'Application Installed',
-        appId: 'market',
-        appName: 'Market',
-        appTemplateId: 'installed',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'New app installed',
-                    body: '{{appName}} is successfully installed and ready for use.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '新应用完成安装',
-                    body: '{{appName}} 已成功安装并可供使用。'
-                }
-            ]
-        },
-        variables: ['appid', 'appName'],
-        level: Level.Info,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Application Stopped',
-        appId: 'market',
-        appName: 'Market',
-        appTemplateId: 'stopped',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'App closed',
-                    body: '{{appName}} has stopped. You can restart it at any time.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '应用已关闭',
-                    body: '{{appName}} 已停止运行。您可以随时重启它。'
-                }
-            ]
-        },
-        variables: ['appid', 'appName'],
-        level: Level.Info,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Application Resumed',
-        appId: 'market',
-        appName: 'Market',
-        appTemplateId: 'resumed',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'App resumed',
-                    body: '{{appName}} has resumed and is ready for use.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '应用恢复',
-                    body: '{{appName}} 现已恢复，可供您使用。'
-                }
-            ]
-        },
-        variables: ['appid', 'appName'],
-        level: Level.Info,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Application Uninstalled',
-        appId: 'market',
-        appName: 'Market',
-        appTemplateId: 'uninstalled',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'App uninstalled',
-                    body: '{{appName}} and its associated data have been removed.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '应用已卸载',
-                    body: '{{appName}} 及其相关数据已被移除。'
-                }
-            ]
-        },
-        variables: ['appid', 'appName'],
-        level: Level.Info,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Disk has pressure',
-        appId: 'system',
-        appName: 'System',
-        appTemplateId: 'disk_pressure',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'Low disk space',
-                    body: 'The disk space on node {{nodeName}} is almost full. Please free up space to ensure stable operation.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '磁盘空间不足',
-                    body: '节点 {{nodeName}} 的磁盘空间即将用尽。请及时清理空间以确保系统稳定运行。'
-                }
-            ]
-        },
-        variables: ['nodeName'],
-        level: Level.Warning,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Disk pressure released',
-        appId: 'system',
-        appName: 'System',
-        appTemplateId: 'disk_no_pressure',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'Disk space restored',
-                    body: 'The disk space on node {{nodeName}} is now at a safe level.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '磁盘空间已恢复',
-                    body: '节点 {{nodeName}} 的磁盘空间已恢复至安全水平。'
-                }
-            ]
-        },
-        variables: ['nodeName'],
-        level: Level.Warning,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Memory has pressure',
-        appId: 'system',
-        appName: 'System',
-        appTemplateId: 'memory_pressure',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'Low memory',
-                    body: 'Available memory on node {{nodeName}} is critically low. Please free up memory to ensure stable operation.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '内存不足',
-                    body: '节点 {{nodeName}} 的可用内存严重不足。请及时释放内存以确保稳定运行。'
-                }
-            ]
-        },
-        variables: ['nodeName'],
-        level: Level.Warning,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Memory pressure released',
-        appId: 'system',
-        appName: 'System',
-        appTemplateId: 'memory_no_pressure',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'Memory usage restored',
-                    body: 'Available memory on node {{nodeName}} has returned to a safe level.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: '内存已恢复',
-                    body: '节点 {{nodeName}} 的可用内存已恢复至安全水平。'
-                }
-            ]
-        },
-        variables: ['nodeName'],
-        level: Level.Warning,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Pid has pressure',
-        appId: 'system',
-        appName: 'System',
-        appTemplateId: 'pid_pressure',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'Low PID',
-                    body: 'Available process IDs (PIDs) on node {{nodeName}} are critically low. Consider stopping unnecessary processes to ensure system stability.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: 'PID 数量不足',
-                    body: '节点 {{nodeName}} 的可用进程 ID (PID) 严重不足。请考虑停止非必要进程以确保系统稳定。'
-                }
-            ]
-        },
-        variables: ['nodeName'],
-        level: Level.Warning,
-        user: '',
-        status: ActiveStatus.Active
-    },
-    {
-        topic: MessageTopic.Notification,
-        name: 'Pid pressure released',
-        appId: 'system',
-        appName: 'System',
-        appTemplateId: 'pid_no_pressure',
-        defaultLanguage: 'en-US',
-        content: {
-            create: [
-                {
-                    language: 'en-US',
-                    title: 'PID usage restored',
-                    body: 'Process ID (PID) usage on node {{nodeName}} has returned to a safe level.'
-                },
-                {
-                    language: 'zh-CN',
-                    title: 'PID 数量已恢复',
-                    body: '节点 {{nodeName}} 的进程 ID (PID) 数量已恢复至安全水平。'
-                }
-            ]
-        },
-        variables: ['nodeName'],
-        level: Level.Warning,
-        user: '',
-        status: ActiveStatus.Active
-    }
+		topic: MessageTopic.Notification,
+		name: 'Application Installed',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'installed',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'New app installed',
+					body: '{{appName}} is successfully installed and ready for use.'
+				},
+				{
+					language: 'zh-CN',
+					title: '新应用完成安装',
+					body: '{{appName}} 已成功安装并可供使用。'
+				}
+			]
+		},
+		variables: ['appid', 'appName'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App closed',
+					body: '{{appName}} has stopped. You can restart it at any time.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已关闭',
+					body: '{{appName}} 已停止运行。您可以随时重启它。'
+				}
+			]
+		},
+		variables: ['appid', 'appName'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Resumed',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'resumed',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App resumed',
+					body: '{{appName}} has resumed and is ready for use.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用恢复',
+					body: '{{appName}} 现已恢复，可供您使用。'
+				}
+			]
+		},
+		variables: ['appid', 'appName'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Uninstalled',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'uninstalled',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App uninstalled',
+					body: '{{appName}} and its associated data have been removed.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已卸载',
+					body: '{{appName}} 及其相关数据已被移除。'
+				}
+			]
+		},
+		variables: ['appid', 'appName'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Disk has pressure',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'disk_pressure',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'Low disk space',
+					body: 'The disk space on node {{nodeName}} is almost full. Please free up space to ensure stable operation.'
+				},
+				{
+					language: 'zh-CN',
+					title: '磁盘空间不足',
+					body: '节点 {{nodeName}} 的磁盘空间即将用尽。请及时清理空间以确保系统稳定运行。'
+				}
+			]
+		},
+		variables: ['nodeName'],
+		level: Level.Warning,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Disk pressure released',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'disk_no_pressure',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'Disk space restored',
+					body: 'The disk space on node {{nodeName}} is now at a safe level.'
+				},
+				{
+					language: 'zh-CN',
+					title: '磁盘空间已恢复',
+					body: '节点 {{nodeName}} 的磁盘空间已恢复至安全水平。'
+				}
+			]
+		},
+		variables: ['nodeName'],
+		level: Level.Warning,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Memory has pressure',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'memory_pressure',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'Low memory',
+					body: 'Available memory on node {{nodeName}} is critically low. Please free up memory to ensure stable operation.'
+				},
+				{
+					language: 'zh-CN',
+					title: '内存不足',
+					body: '节点 {{nodeName}} 的可用内存严重不足。请及时释放内存以确保稳定运行。'
+				}
+			]
+		},
+		variables: ['nodeName'],
+		level: Level.Warning,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Memory pressure released',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'memory_no_pressure',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'Memory usage restored',
+					body: 'Available memory on node {{nodeName}} has returned to a safe level.'
+				},
+				{
+					language: 'zh-CN',
+					title: '内存已恢复',
+					body: '节点 {{nodeName}} 的可用内存已恢复至安全水平。'
+				}
+			]
+		},
+		variables: ['nodeName'],
+		level: Level.Warning,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Pid has pressure',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'pid_pressure',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'Low PID',
+					body: 'Available process IDs (PIDs) on node {{nodeName}} are critically low. Consider stopping unnecessary processes to ensure system stability.'
+				},
+				{
+					language: 'zh-CN',
+					title: 'PID 数量不足',
+					body: '节点 {{nodeName}} 的可用进程 ID (PID) 严重不足。请考虑停止非必要进程以确保系统稳定。'
+				}
+			]
+		},
+		variables: ['nodeName'],
+		level: Level.Warning,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Pid pressure released',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'pid_no_pressure',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'PID usage restored',
+					body: 'Process ID (PID) usage on node {{nodeName}} has returned to a safe level.'
+				},
+				{
+					language: 'zh-CN',
+					title: 'PID 数量已恢复',
+					body: '节点 {{nodeName}} 的进程 ID (PID) 数量已恢复至安全水平。'
+				}
+			]
+		},
+		variables: ['nodeName'],
+		level: Level.Warning,
+		user: '',
+		status: ActiveStatus.Active
+	}
 ];
