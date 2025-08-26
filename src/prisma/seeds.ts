@@ -257,7 +257,7 @@ export const TemplateList = [
 				}
 			]
 		},
-		variables: ['appid', 'appName'],
+		variables: ['appName'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
@@ -283,7 +283,7 @@ export const TemplateList = [
 				}
 			]
 		},
-		variables: ['appid', 'appName'],
+		variables: ['appName'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
@@ -309,7 +309,7 @@ export const TemplateList = [
 				}
 			]
 		},
-		variables: ['appid', 'appName'],
+		variables: ['appName'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
@@ -335,7 +335,7 @@ export const TemplateList = [
 				}
 			]
 		},
-		variables: ['appid', 'appName'],
+		variables: ['appName'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active

@@ -212,6 +212,60 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 						} else if (
 							app.subject == process.env.NATS_SUBJECT_SYSTEM_VAULT
 						) {
+							//
+						} else if (
+							app.subject ==
+							process.env.NATS_SUBJECT_SYSTEM_NOTIFICATION
+						) {
+							const topic = data.topic;
+							const nodeName = data.payload.nodeName;
+							const status = data.payload.status;
+							console.log(
+								'topic, nodeName, status',
+								topic,
+								nodeName,
+								status
+							);
+
+							const admin_users = this.users.filter((u) =>
+								u.groups.includes('lldap_admin')
+							);
+							console.log(admin_users);
+							for (const user in admin_users) {
+								let realTopic = '';
+								if (topic == 'MemoryPressure') {
+									if (status) {
+										realTopic = 'memory_pressure';
+									} else {
+										realTopic = 'memory_no_pressure';
+									}
+								} else if (topic == 'DiskPressure') {
+									if (status) {
+										realTopic = 'disk_pressure';
+									} else {
+										realTopic = 'disk_no_pressure';
+									}
+								} else if (topic == 'PIDPressure') {
+									if (status) {
+										realTopic = 'pid_pressure';
+									} else {
+										realTopic = 'pid_no_pressure';
+									}
+								}
+
+								console.log('realTopic', realTopic);
+
+								if (realTopic) {
+									await this.natsClientPublish(
+										user,
+										'system',
+										realTopic,
+										{
+											nodeName
+										}
+									);
+								}
+							}
 						} else {
 							//console.log
 						}
@@ -256,6 +310,9 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			},
 			{
 				subject: process.env.NATS_SUBJECT_SYSTEM_VAULT || ''
+			},
+			{
+				subject: process.env.NATS_SUBJECT_SYSTEM_NOTIFICATION || ''
 			}
 		];
 		await this.handlesMessage(subjects);
