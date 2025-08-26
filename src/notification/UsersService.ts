@@ -213,10 +213,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 							app.subject == process.env.NATS_SUBJECT_SYSTEM_VAULT
 						) {
 							//
-						} else if (
-							app.subject ==
-							process.env.NATS_SUBJECT_SYSTEM_NOTIFICATION
-						) {
+						} else if (app.subject == process.env.NATS_SUBJECT) {
 							const topic = data.topic;
 							const nodeName = data.payload.nodeName;
 							const status = data.payload.status;
@@ -312,7 +309,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 				subject: process.env.NATS_SUBJECT_SYSTEM_VAULT || ''
 			},
 			{
-				subject: process.env.NATS_SUBJECT_SYSTEM_NOTIFICATION || ''
+				subject: process.env.NATS_SUBJECT || ''
 			}
 		];
 		await this.handlesMessage(subjects);
