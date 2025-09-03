@@ -47,4 +47,6 @@ packages/frontend/.yalc/*
 .env
 packages/frontend/yalc.lock
 
+docker-build-server.sh
+
 volumesdata
