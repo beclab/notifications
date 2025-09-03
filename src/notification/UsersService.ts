@@ -179,7 +179,10 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market',
 									'installed',
 									{
-										appName: appName
+										appName: appName,
+										vars: {
+											appName
+										}
 									}
 								);
 							} else if (opType == 'stop' && state == 'stopped') {
@@ -188,7 +191,10 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market',
 									'stopped',
 									{
-										appName: appName
+										appName: appName,
+										vars: {
+											appName
+										}
 									}
 								);
 							} else if (
@@ -200,7 +206,10 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market',
 									'resumed',
 									{
-										appName: appName
+										appName: appName,
+										vars: {
+											appName
+										}
 									}
 								);
 							} else if (
@@ -212,7 +221,10 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market',
 									'uninstalled',
 									{
-										appName: appName
+										appName: appName,
+										vars: {
+											appName
+										}
 									}
 								);
 							}
@@ -267,7 +279,10 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 										'system',
 										realTopic,
 										{
-											nodeName
+											nodeName,
+											vars: {
+												nodeName
+											}
 										}
 									);
 								}
