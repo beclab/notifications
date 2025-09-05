@@ -108,7 +108,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								this.logger.log('Login event received', data);
 
 								data.payload.vars = {
-									time: new Date().getTime(),
+									time: new Date().toLocaleString(),
 									user: data.payload.user
 								};
 
@@ -158,6 +158,44 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'system.cancel.sign',
 									payload
 								);
+							} else if (data.topic == 'Create') {
+								this.logger.log('Create event received', data);
+
+								data.payload.vars = {
+									time: new Date().toLocaleString(),
+									user: data.payload.user
+								};
+
+								const admin_users = this.users.filter((u) =>
+									u.groups.includes('lldap_admin')
+								);
+								admin_users.forEach(async (user) => {
+									await this.natsClientPublish(
+										user.username,
+										'system',
+										'create',
+										data.payload
+									);
+								});
+							} else if (data.topic == 'Delete') {
+								this.logger.log('Delete event received', data);
+
+								data.payload.vars = {
+									time: new Date().toLocaleString(),
+									user: data.payload.user
+								};
+
+								const admin_users = this.users.filter((u) =>
+									u.groups.includes('lldap_admin')
+								);
+								admin_users.forEach(async (user) => {
+									await this.natsClientPublish(
+										user.username,
+										'system',
+										'delete',
+										data.payload
+									);
+								});
 							} else {
 								await this.getUsers();
 							}
@@ -249,7 +287,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								u.groups.includes('lldap_admin')
 							);
 							console.log(admin_users);
-							for (const user in admin_users) {
+							for (const user of admin_users) {
 								let realTopic = '';
 								if (topic == 'MemoryPressure') {
 									if (status) {
@@ -275,7 +313,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 
 								if (realTopic) {
 									await this.natsClientPublish(
-										user,
+										user.username,
 										'system',
 										realTopic,
 										{
