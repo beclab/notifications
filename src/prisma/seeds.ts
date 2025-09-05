@@ -495,5 +495,57 @@ export const TemplateList = [
 		level: Level.Warning,
 		user: '',
 		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Create',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'create',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'New user created',
+					body: 'User {{user}} was successfully created at {{time}}.'
+				},
+				{
+					language: 'zh-CN',
+					title: '新创建创建',
+					body: '用户 {{user}} 已于 {{time}} 成功创建。'
+				}
+			]
+		},
+		variables: ['user', 'time'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Delete',
+		appId: 'system',
+		appName: 'System',
+		appTemplateId: 'delete',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'User deleted',
+					body: 'User {{user}} was successfully deleted at at {{time}}.'
+				},
+				{
+					language: 'zh-CN',
+					title: '用户已删除',
+					body: '用户 {{user}} 已于 {{time}} 成功删除。'
+				}
+			]
+		},
+		variables: ['user', 'time'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
 	}
 ];
