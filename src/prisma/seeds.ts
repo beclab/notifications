@@ -7,23 +7,23 @@ export const TemplateList = [
 		name: 'Login',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'login',
+		appTemplateId: 'login_v2',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
 				{
 					language: 'en-US',
 					title: 'New user login',
-					body: 'At {{time}}, {{user}} logged in to Olares.'
+					body: 'User {{user}} logged in to Olares.'
 				},
 				{
 					language: 'zh-CN',
-					title: '新的用户登录',
-					body: '在 {{time}}，{{user}} 登录了 Olares'
+					title: '新用户登录',
+					body: '用户 {{user}} 登录了 Olares'
 				}
 			]
 		},
-		variables: ['user', 'time'],
+		variables: ['user'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
@@ -501,23 +501,23 @@ export const TemplateList = [
 		name: 'Create',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'create',
+		appTemplateId: 'create_v2',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
 				{
 					language: 'en-US',
 					title: 'New user created',
-					body: 'User {{user}} was successfully created at {{time}}.'
+					body: 'User {{user}} was successfully created.'
 				},
 				{
 					language: 'zh-CN',
 					title: '新创建创建',
-					body: '用户 {{user}} 已于 {{time}} 成功创建。'
+					body: '用户 {{user}} 已成功创建。'
 				}
 			]
 		},
-		variables: ['user', 'time'],
+		variables: ['user'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
@@ -527,23 +527,23 @@ export const TemplateList = [
 		name: 'Delete',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'delete',
+		appTemplateId: 'delete_v2',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
 				{
 					language: 'en-US',
 					title: 'User deleted',
-					body: 'User {{user}} was successfully deleted at at {{time}}.'
+					body: 'User {{user}} was successfully deleted.'
 				},
 				{
 					language: 'zh-CN',
 					title: '用户已删除',
-					body: '用户 {{user}} 已于 {{time}} 成功删除。'
+					body: '用户 {{user}} 已成功删除。'
 				}
 			]
 		},
-		variables: ['user', 'time'],
+		variables: ['user'],
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active

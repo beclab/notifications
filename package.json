@@ -21,7 +21,7 @@
         "test:e2e": "jest --config ./test/jest-e2e.json"
 	},
 	"dependencies": {
-		"@bytetrade/core": "0.3.77",
+		"@bytetrade/core": "0.3.98",
         "axios": "^0.21.1",
         "@prisma/client": "6.8.2",
         "uuid": "^9.0.0",

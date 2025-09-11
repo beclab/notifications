@@ -108,14 +108,13 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								this.logger.log('Login event received', data);
 
 								data.payload.vars = {
-									time: new Date().toLocaleString(),
 									user: data.payload.user
 								};
 
 								await this.natsClientPublish(
 									data.payload.user,
 									'system',
-									'login',
+									'login_v2',
 									data.payload
 								);
 							} else if (data.topic == 'OnFirstFactor') {
@@ -160,9 +159,8 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								);
 							} else if (data.topic == 'Create') {
 								this.logger.log('Create event received', data);
-
+								await this.getUsers();
 								data.payload.vars = {
-									time: new Date().toLocaleString(),
 									user: data.payload.user
 								};
 
@@ -173,15 +171,15 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									await this.natsClientPublish(
 										user.username,
 										'system',
-										'create',
+										'create_v2',
 										data.payload
 									);
 								});
 							} else if (data.topic == 'Delete') {
 								this.logger.log('Delete event received', data);
+								await this.getUsers();
 
 								data.payload.vars = {
-									time: new Date().toLocaleString(),
 									user: data.payload.user
 								};
 
@@ -192,7 +190,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									await this.natsClientPublish(
 										user.username,
 										'system',
-										'delete',
+										'delete_v2',
 										data.payload
 									);
 								});
@@ -346,7 +344,8 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			this.natsClient = await connect({
 				servers: nats_url,
 				user: NATS_USERNAME,
-				pass: NATS_PASSWORD
+				pass: NATS_PASSWORD,
+				maxReconnectAttempts: -1
 			});
 		} catch (error) {
 			this.logger.error('error connecting to NATS:', error);
