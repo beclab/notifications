@@ -8,6 +8,7 @@ import {
 import axios from 'axios';
 import { NatsConnection, StringCodec, connect } from 'nats';
 import { TemplateService } from './template.service';
+import { autoFuncWithRetry } from '@bytetrade/core';
 
 const NATS_HOST = process.env.NATS_HOST || '';
 const NATS_PORT = process.env.NATS_PORT || 4222;
@@ -341,12 +342,22 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 		await this.getUsers();
 
 		try {
-			this.natsClient = await connect({
-				servers: nats_url,
-				user: NATS_USERNAME,
-				pass: NATS_PASSWORD,
-				maxReconnectAttempts: -1
-			});
+			this.natsClient = await autoFuncWithRetry(
+				async () => {
+					return await connect({
+						servers: nats_url,
+						user: NATS_USERNAME,
+						pass: NATS_PASSWORD,
+						maxReconnectAttempts: -1
+					});
+				},
+				-1,
+				5000,
+				(temp: number) => {
+					return Math.min(120000, temp * 10000);
+				},
+				this.logger
+			);
 		} catch (error) {
 			this.logger.error('error connecting to NATS:', error);
 			return;
