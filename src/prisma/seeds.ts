@@ -290,6 +290,110 @@ export const TemplateList = [
 	},
 	{
 		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_by_user_v1',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App closed',
+					body: '{{title}} has stopped. Cause: stopped manually. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已关闭',
+					body: '{{title}} 已停止运行。原因：手动停止。您可以随时重启。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_evicted',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App closed',
+					body: '{{title}} has stopped. Cause: high system load. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已关闭',
+					body: '{{title}} 已停止运行。原因：系统负载过高。您可以随时重启。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_init_failed',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App closed',
+					body: '{{title}} has stopped. Cause: initialization issue. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已关闭',
+					body: '{{title}} 已停止运行。原因：初始化异常。您可以随时重启。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_unknown',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App closed',
+					body: '{{title}} has stopped. Cause: unknown. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已关闭',
+					body: '{{title}} 已停止运行。原因：未知。您可以随时重启。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
 		name: 'Application Resumed',
 		appId: 'market',
 		appName: 'Market',
@@ -548,4 +652,30 @@ export const TemplateList = [
 		user: '',
 		status: ActiveStatus.Active
 	}
+	// {
+	// 	topic: MessageTopic.SIGN,
+	// 	name: 'Application Payment',
+	// 	appId: 'market',
+	// 	appName: 'Market',
+	// 	appTemplateId: 'market.fetch.payment',
+	// 	defaultLanguage: 'en-US',
+	// 	content: {
+	// 		create: [
+	// 			{
+	// 				language: 'en-US',
+	// 				title: 'Fetch Application Payment',
+	// 				body: 'Your Olares ID is being authorized to check pay with the app. Please confirm that this is you. Click Confirm to agree, or Cancel to decline.'
+	// 			},
+	// 			{
+	// 				language: 'zh-CN',
+	// 				title: '绑定 Olares Space',
+	// 				body: '您的 Olares ID 正在被授权应用支付检测。请确认是否是您本人操作。点击确认同意，点击取消拒绝操作。'
+	// 			}
+	// 		]
+	// 	},
+	// 	variables: [],
+	// 	user: '',
+	// 	level: Level.Sign,
+	// 	status: ActiveStatus.Active
+	// }
 ];
