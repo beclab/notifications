@@ -195,6 +195,46 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 										data.payload
 									);
 								});
+							} else if (data.topic == 'market_payment') {
+								this.logger.log(
+									'market_payment event received',
+									data
+								);
+
+								const payload = {
+									sign: {
+										...data.sign
+									},
+									vars: data.vars
+								};
+
+								await this.natsClientPublish(
+									data.user,
+									'market',
+									'market.payment',
+									payload
+								);
+							} else if (
+								data.topic == 'fetch_payment_signature'
+							) {
+								this.logger.log(
+									'fetch_payment_signature event received',
+									data
+								);
+
+								const payload = {
+									sign: {
+										...data.sign
+									},
+									vars: data.vars
+								};
+
+								await this.natsClientPublish(
+									data.user,
+									'market',
+									'market.fetch.payment',
+									payload
+								);
 							} else {
 								await this.getUsers();
 							}
@@ -209,28 +249,42 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 							const user = data.user || '';
 							const opType = data.opType || '';
 							const state = data.state;
-							const appName = data.name || '';
+							// const appName = data.name || '';
+							const title = data.title || data.name || '';
+							const opId = data.opID;
 							if (opType == 'install' && state == 'running') {
 								await this.natsClientPublish(
 									user,
 									'market',
 									'installed',
 									{
-										appName: appName,
+										appName: title,
 										vars: {
-											appName
+											appName: title
 										}
 									}
 								);
-							} else if (opType == 'stop' && state == 'stopped') {
+							} else if (!!opId && state == 'stopped') {
+								// let Reason = 'unknown';
+								const reason = data.reason || '';
+
+								let templateId = 'stopped_unknown';
+								if (reason == 'StopByUser') {
+									templateId = 'stopped_by_user_v1';
+								} else if (reason == 'Evicted') {
+									templateId = 'stopped_evicted';
+								} else if (reason == 'InitFailed') {
+									templateId = 'stopped_init_failed';
+								}
+
 								await this.natsClientPublish(
 									user,
 									'market',
-									'stopped',
+									templateId,
 									{
-										appName: appName,
+										title: title,
 										vars: {
-											appName
+											title
 										}
 									}
 								);
@@ -243,9 +297,9 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market',
 									'resumed',
 									{
-										appName: appName,
+										appName: title,
 										vars: {
-											appName
+											appName: title
 										}
 									}
 								);
@@ -258,9 +312,9 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market',
 									'uninstalled',
 									{
-										appName: appName,
+										appName: title,
 										vars: {
-											appName
+											appName: title
 										}
 									}
 								);
