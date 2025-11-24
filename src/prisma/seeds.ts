@@ -651,31 +651,57 @@ export const TemplateList = [
 		level: Level.Info,
 		user: '',
 		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.SIGN,
+		name: 'Application Payment',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'market.fetch.payment',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'Fetch Application Payment',
+					body: 'Your Olares ID is being authorized to check pay with the app. Please confirm that this is you. Click Confirm to agree, or Cancel to decline.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用支付检测',
+					body: '您的 Olares ID 正在被授权应用支付检测。请确认是否是您本人操作。点击确认同意，点击取消拒绝操作。'
+				}
+			]
+		},
+		variables: [],
+		user: '',
+		level: Level.Sign,
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.SIGN,
+		name: 'Application Payment',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'market.payment',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'Application Payment',
+					body: 'Your Olares ID is being authorized to pay with the app. Please confirm that this is you. Click Confirm to agree, or Cancel to decline.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用支付',
+					body: '您的 Olares ID 正在被授权应用支付。请确认是否是您本人操作。点击确认同意，点击取消拒绝操作。'
+				}
+			]
+		},
+		variables: [],
+		user: '',
+		level: Level.Sign,
+		status: ActiveStatus.Active
 	}
-	// {
-	// 	topic: MessageTopic.SIGN,
-	// 	name: 'Application Payment',
-	// 	appId: 'market',
-	// 	appName: 'Market',
-	// 	appTemplateId: 'market.fetch.payment',
-	// 	defaultLanguage: 'en-US',
-	// 	content: {
-	// 		create: [
-	// 			{
-	// 				language: 'en-US',
-	// 				title: 'Fetch Application Payment',
-	// 				body: 'Your Olares ID is being authorized to check pay with the app. Please confirm that this is you. Click Confirm to agree, or Cancel to decline.'
-	// 			},
-	// 			{
-	// 				language: 'zh-CN',
-	// 				title: '绑定 Olares Space',
-	// 				body: '您的 Olares ID 正在被授权应用支付检测。请确认是否是您本人操作。点击确认同意，点击取消拒绝操作。'
-	// 			}
-	// 		]
-	// 	},
-	// 	variables: [],
-	// 	user: '',
-	// 	level: Level.Sign,
-	// 	status: ActiveStatus.Active
-	// }
 ];
