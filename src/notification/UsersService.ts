@@ -235,6 +235,24 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market.fetch.payment',
 									payload
 								);
+							} else if (data.topic == 'save_payment_vc') {
+								this.logger.log(
+									'save_payment_vc event received',
+									data
+								);
+								const payload = {
+									sign: {
+										...data.sign
+									},
+									vars: data.vars
+								};
+
+								await this.natsClientPublish(
+									data.user,
+									'market',
+									'market.save.vc',
+									payload
+								);
 							} else {
 								await this.getUsers();
 							}

@@ -657,19 +657,19 @@ export const TemplateList = [
 		name: 'Application Payment',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'market.fetch.payment',
+		appTemplateId: 'market.fetch.payment.v1',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
 				{
 					language: 'en-US',
-					title: 'Fetch Application Payment',
-					body: 'Your Olares ID is being authorized to check pay with the app. Please confirm that this is you. Click Confirm to agree, or Cancel to decline.'
+					title: 'Authorize payment access',
+					body: 'Olares Market is requesting access to your payment profile. Please confirm that you initiated this request.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用支付检测',
-					body: '您的 Olares ID 正在被授权应用支付检测。请确认是否是您本人操作。点击确认同意，点击取消拒绝操作。'
+					title: '授权支付访问',
+					body: 'Olares Market 正在请求访问您的支付配置信息。请确认该请求由您本人发起。'
 				}
 			]
 		},
@@ -683,22 +683,35 @@ export const TemplateList = [
 		name: 'Application Payment',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'market.payment',
+		appTemplateId: 'market.payment.v1',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
 				{
 					language: 'en-US',
-					title: 'Application Payment',
-					body: 'Your Olares ID is being authorized to pay with the app. Please confirm that this is you. Click Confirm to agree, or Cancel to decline.'
+					title: 'Authorize purchase',
+					body: 'You are authorizing a payment request for this application. Please confirm to proceed.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用支付',
-					body: '您的 Olares ID 正在被授权应用支付。请确认是否是您本人操作。点击确认同意，点击取消拒绝操作。'
+					title: '授权购买',
+					body: '您正在授权该应用的支付请求。请点击确认以继续。'
 				}
 			]
 		},
+		variables: [],
+		user: '',
+		level: Level.Sign,
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Data,
+		name: 'Save Application Payment',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'market.save.vc',
+		defaultLanguage: 'en-US',
+		content: {},
 		variables: [],
 		user: '',
 		level: Level.Sign,
