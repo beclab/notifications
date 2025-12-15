@@ -211,7 +211,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									data.user,
 									'market',
-									'market.payment',
+									'market.payment.v1',
 									payload
 								);
 							} else if (
@@ -232,7 +232,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									data.user,
 									'market',
-									'market.fetch.payment',
+									'market.fetch.payment.v1',
 									payload
 								);
 							} else if (data.topic == 'save_payment_vc') {
