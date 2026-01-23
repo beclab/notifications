@@ -270,6 +270,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 							// const appName = data.name || '';
 							const title = data.title || data.name || '';
 							const opId = data.opID;
+							const icon = data.icon || '';
 							if (opType == 'install' && state == 'running') {
 								await this.natsClientPublish(
 									user,
@@ -279,7 +280,8 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 										appName: title,
 										vars: {
 											appName: title
-										}
+										},
+										icon: icon
 									}
 								);
 							} else if (!!opId && state == 'stopped') {
@@ -300,10 +302,11 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									'market',
 									templateId,
 									{
-										title: title,
+										appName: title,
 										vars: {
 											title
-										}
+										},
+										icon: icon
 									}
 								);
 							} else if (
@@ -318,7 +321,8 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 										appName: title,
 										vars: {
 											appName: title
-										}
+										},
+										icon: icon
 									}
 								);
 							} else if (
@@ -333,7 +337,8 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 										appName: title,
 										vars: {
 											appName: title
-										}
+										},
+										icon: icon
 									}
 								);
 							}
