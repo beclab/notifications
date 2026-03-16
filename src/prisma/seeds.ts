@@ -394,6 +394,32 @@ export const TemplateList = [
 	},
 	{
 		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_hami_unschedulable',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App closed',
+					body: '{{title}} has stopped. Cause: insufficient vram.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已关闭',
+					body: '{{title}} 已停止运行。原因：显存不足。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
 		name: 'Application Resumed',
 		appId: 'market',
 		appName: 'Market',
