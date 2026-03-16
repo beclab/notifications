@@ -295,6 +295,8 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									templateId = 'stopped_evicted';
 								} else if (reason == 'InitFailed') {
 									templateId = 'stopped_init_failed';
+								} else if (reason == 'HamiUnschedulable') {
+									templateId = 'stopped_hami_unschedulable';
 								}
 
 								await this.natsClientPublish(
