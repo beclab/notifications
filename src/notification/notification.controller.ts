@@ -59,7 +59,7 @@ export class NotificationController {
 	async getTemplateContentById(
 		@Param('id') id: string
 	): Promise<Result<Template[]>> {
-		console.log('getTemplateContentById', id);
+		this.logger.log('getTemplateContentById', id);
 		try {
 			return returnSucceed(
 				await this.templateContentService.findByTemplateId(parseInt(id))

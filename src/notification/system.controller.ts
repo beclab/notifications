@@ -12,30 +12,7 @@ export class SystemController {
 
 	async handleNoTemplate(payload: Payload): Promise<Result<null>> {
 		if (payload.eventType == 'user.login') {
-			// const template = await this.templateService.findSystemTemplate(
-			// 	'login'
-			// );
-			// if (!template) {
-			// 	this.logger.warn('login template not found');
-			// 	return returnSucceed(null);
-			// }
-			// this.logger.debug(template);
-			// this.jobService.processOneJob({
-			//   templateId: template.id,
-			//   user: user,
-			//   //  notifyPolicyId: notifyPolicy.id,
-			//   language: this.jobService.language,
-			//   rawMessage: {
-			//     vars: {
-			//       time: new Date().toLocaleString(),
-			//       username: payload.eventData.user,
-			//       device: '',
-			//       location: '',
-			//     },
-			//   },
-			// });
 		} else if (payload.eventType == 'app.install') {
-			//
 		} else {
 		}
 		return returnSucceed(null);
@@ -45,32 +22,16 @@ export class SystemController {
 	@HttpCode(200)
 	async push(@Body() body: KubeSphereNotification): Promise<Result<null>> {
 		this.logger.log('push');
-		this.logger.log(body);
 
 		try {
 			if (body.commonLabels.type == 'notification') {
 				const payload: Payload = JSON.parse(body.commonLabels.payload);
 				this.logger.log(payload.eventType);
-
-				// const template = await this.templateService.findTemplate(
-				//   payload.eventType,
-				// );
-				// if (!template) {
-				//   this.logger.warn('template not found ' + payload.eventType);
-				//   return await this.handleNoTemplate(payload);
-				// }
-				// this.logger.debug(template);
-
-				// // this.natsService.pushMessage(
-				// //   templateId: template.id,
-				// //   user: user,
-				// //   payload,
-				// // );
 			} else {
 				this.logger.warn('error type' + body.commonLabels.type);
 			}
 		} catch (e) {
-			console.log(e);
+			this.logger.error(e);
 		}
 
 		return returnSucceed(null);
