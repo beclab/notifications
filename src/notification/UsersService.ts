@@ -73,7 +73,10 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			appTemplateId: template.appTemplateId,
 			payload: payload
 		};
-		this.logger.log(`Publishing to NATS subject: ${subject}`, data);
+		this.logger.log(
+			`Publishing to NATS subject: ${subject}`,
+			data.appTemplateId
+		);
 		this.natsClient.publish(subject, this.sc.encode(JSON.stringify(data)));
 	}
 
@@ -92,21 +95,18 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 				try {
 					for await (const m of sub) {
 						let data = this.sc.decode(m.data);
-						console.log('subject payload', app.subject, data);
+						this.logger.log('subject payload', app.subject, data);
 						try {
 							data = JSON.parse(data);
 						} catch (error) {
-							this.logger.log(
-								'payload not json, use string ===>',
-								data
-							);
+							this.logger.error('payload not json,error:', error);
 						}
 						if (
 							app.subject == process.env.NATS_SUBJECT_SYSTEM_USERS
 						) {
 							//
 							if (data.topic == 'Login') {
-								this.logger.log('Login event received', data);
+								this.logger.log('Login event received');
 
 								data.payload.vars = {
 									user: data.payload.user
@@ -119,10 +119,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									data.payload
 								);
 							} else if (data.topic == 'OnFirstFactor') {
-								this.logger.log(
-									'OnFirstFactor event received',
-									data
-								);
+								this.logger.log('OnFirstFactor event received');
 
 								const payload = {
 									...data.payload,
@@ -138,12 +135,9 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									payload
 								);
 							} else if (data.topic == 'Logout') {
-								this.logger.log('Logout event received', data);
+								this.logger.log('Logout event received');
 							} else if (data.topic == 'SignCancel') {
-								this.logger.log(
-									'SignCancel event received',
-									data
-								);
+								this.logger.log('SignCancel event received');
 
 								const payload = {
 									...data.payload,
@@ -159,7 +153,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									payload
 								);
 							} else if (data.topic == 'Create') {
-								this.logger.log('Create event received', data);
+								this.logger.log('Create event received');
 								await this.getUsers();
 								data.payload.vars = {
 									user: data.payload.user
@@ -177,7 +171,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									);
 								});
 							} else if (data.topic == 'Delete') {
-								this.logger.log('Delete event received', data);
+								this.logger.log('Delete event received');
 								await this.getUsers();
 
 								data.payload.vars = {
@@ -197,8 +191,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								});
 							} else if (data.topic == 'market_payment') {
 								this.logger.log(
-									'market_payment event received',
-									data
+									'market_payment event received'
 								);
 
 								const payload = {
@@ -218,8 +211,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								data.topic == 'fetch_payment_signature'
 							) {
 								this.logger.log(
-									'fetch_payment_signature event received',
-									data
+									'fetch_payment_signature event received'
 								);
 
 								const payload = {
@@ -237,8 +229,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								);
 							} else if (data.topic == 'save_payment_vc') {
 								this.logger.log(
-									'save_payment_vc event received',
-									data
+									'save_payment_vc event received'
 								);
 								const payload = {
 									sign: {
@@ -354,7 +345,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 							const status = normalizeBoolean(
 								data.payload.status
 							);
-							console.log(
+							this.logger.log(
 								'topic, nodeName, status',
 								topic,
 								nodeName,
@@ -364,7 +355,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 							const admin_users = this.users.filter((u) =>
 								u.groups.includes('lldap_admin')
 							);
-							console.log(admin_users);
+							this.logger.log(admin_users);
 							for (const user of admin_users) {
 								let realTopic = '';
 								if (topic == 'MemoryPressure') {
@@ -387,7 +378,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									}
 								}
 
-								console.log('realTopic', realTopic);
+								this.logger.log('realTopic', realTopic);
 
 								if (realTopic) {
 									await this.natsClientPublish(
@@ -404,7 +395,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								}
 							}
 						} else {
-							//console.log
+							//this.logger.log
 						}
 					}
 				} catch (error) {
@@ -469,8 +460,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 		this.logger.log(`Found ${templates.length} templates in the system`);
 
 		for (const template of templates) {
-			// Do something with each template
-			console.log(template);
+			this.logger.log(template);
 		}
 	}
 
@@ -490,7 +480,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			const us: User[] = [];
 			for (const user of response.data.items) {
 				us.push(user);
-				console.log('user', user);
+				this.logger.log('user', user);
 			}
 
 			this.users = us;
@@ -504,7 +494,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 		templateid: string,
 		data: any
 	): Promise<void> {
-		console.log('pushTemplate', userid, templateid, data);
+		this.logger.log('pushTemplate', userid, templateid, data);
 		return;
 	}
 }

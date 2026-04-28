@@ -130,7 +130,6 @@ export class TemplateService {
 	) {
 		const v = [];
 		for (const key in variables) {
-			console.log(key);
 			v.push(key);
 		}
 		return this.checkTemplateMatchedVariables(template, v);
