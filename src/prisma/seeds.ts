@@ -13,13 +13,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'New user login',
-					body: 'User {{user}} logged in to Olares.'
+					title: 'User logged in',
+					body: 'User {{user}} logged in to Olares'
 				},
 				{
 					language: 'zh-CN',
-					title: '新用户登录',
-					body: '用户 {{user}} 登录了 Olares'
+					title: '用户已登录',
+					body: '用户 {{user}} 已登录 Olares'
 				}
 			]
 		},
@@ -40,12 +40,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'Vault updated',
-					body: 'Vault updated.'
+					body: 'Your Vault data is up to date'
 				},
 				{
 					language: 'zh-CN',
-					title: 'Vault 更新',
-					body: 'Vault 已更新'
+					title: 'Vault 已更新',
+					body: 'Vault 数据已是最新'
 				}
 			]
 		},
@@ -65,13 +65,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Vault Updated',
-					body: 'Vault Updated.'
+					title: 'Vault updated',
+					body: 'Your Vault data is up to date'
 				},
 				{
 					language: 'zh-CN',
-					title: 'Vault 更新',
-					body: 'Vault 已更新'
+					title: 'Vault 已更新',
+					body: 'Vault 数据已是最新'
 				}
 			]
 		},
@@ -91,13 +91,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Log in to Olares',
-					body: 'Your Olares ID {{user}} is being used to log in to Olares. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.'
+					title: 'Log in to Olares?',
+					body: 'Your Olares ID {{user}} is being used to log in to Olares. Select Confirm to continue, or Cancel if this wasn’t you.'
 				},
 				{
 					language: 'zh-CN',
-					title: 'Olares 登录提醒',
-					body: '您的 Olares ID {{user}} 正在被用于登录 Olares。请确认是否是您本人操作。点击确认以授权登录，点击取消拒绝登录。'
+					title: '登录 Olares？',
+					body: 'Olares ID {{user}} 正在用于登录 Olares。如是本人操作，请选择确认。否则请选择取消。'
 				}
 			]
 		},
@@ -117,13 +117,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Bind Olares Space',
-					body: 'Your Olares ID {{terminusName}} is being used to bind a Olares Space account. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.'
+					title: 'Log in to Olares Space?',
+					body: 'Your Olares ID {{terminusName}} is being used to log in to Olares Space. Select Confirm to continue, or Cancel if this wasn’t you.'
 				},
 				{
 					language: 'zh-CN',
-					title: '绑定 Olares Space',
-					body: '您的 Olares ID {{terminusName}} 正在被用于创建 Olares Space 账户。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。'
+					title: '登录 Olares Space？',
+					body: 'Olares ID {{terminusName}} 正在用于登录 Olares Space。如是本人操作，请选择确认。否则请选择取消。'
 				}
 			]
 		},
@@ -169,13 +169,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Bind New Ethereum Address',
-					body: 'Your Olares ID {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.'
+					title: 'Bind new Ethereum address?',
+					body: 'Your Olares ID {{terminusName}} is requesting to bind Ethereum address {{address}}. Select Confirm to continue, or Cancel if this wasn’t you.'
 				},
 				{
 					language: 'zh-CN',
-					title: '绑定新的以太坊地址',
-					body: '您的 Olares ID {{terminusName}} 正被用于授权完成  {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。'
+					title: '绑定新的以太坊地址？',
+					body: 'Olares ID {{terminusName}} 正在请求绑定以太坊地址 {{address}}。如是本人操作，请选择确认。否则请选择取消。'
 				}
 			]
 		},
@@ -195,13 +195,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Unbind Ethereum Address',
-					body: 'Your Olares ID {{terminusName}} is applying for authorization to complete the {{address}} private key signature. Please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.'
+					title: 'Unbind Ethereum address?',
+					body: 'Your Olares ID {{terminusName}} is requesting to unbind Ethereum address {{address}}. Select Confirm to continue, or Cancel if this wasn’t you.'
 				},
 				{
 					language: 'zh-CN',
-					title: '取消绑定以太坊地址',
-					body: '您的 Olares ID {{terminusName}} 正被用于授权完成 {{address}} 的私钥签名。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。.'
+					title: '解绑以太坊地址？',
+					body: 'Olares ID {{terminusName}} 正在请求解绑以太坊地址 {{address}}。如是本人操作，请选择确认。否则请选择取消。'
 				}
 			]
 		},
@@ -221,13 +221,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Bind NFT Avatar',
-					body: 'Your Olares ID {{terminusName}} is applying to bind an NFT avatar, please confirm whether it is done by you. Click Confirm to authorize the action, or Cancel to deny the action.'
+					title: 'Set NFT avatar?',
+					body: 'Your Olares ID {{terminusName}} is setting an NFT avatar. Select Confirm to continue, or Cancel if this wasn’t you.'
 				},
 				{
 					language: 'zh-CN',
-					title: '绑定 NFT 头像',
-					body: '您的 Olares ID {{terminusName}} 正在被用于绑定 NFT 头像。请确认是否是您本人操作。点击确认以同意，点击取消拒绝操作。'
+					title: '设置 NFT 头像？',
+					body: 'Olares ID {{terminusName}} 正在请求设置 NFT 头像。如是本人操作，请选择确认。否则请选择取消。'
 				}
 			]
 		},
@@ -247,13 +247,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'New app installed',
-					body: '{{appName}} is successfully installed and ready for use.'
+					title: 'App installed',
+					body: '{{appName}} is ready to use'
 				},
 				{
 					language: 'zh-CN',
-					title: '新应用完成安装',
-					body: '{{appName}} 已成功安装并可供使用。'
+					title: '应用已安装',
+					body: '{{appName}} 可以使用了'
 				}
 			]
 		},
@@ -273,13 +273,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'App closed',
-					body: '{{appName}} has stopped. You can restart it at any time.'
+					title: 'App stopped',
+					body: '{{appName}} stopped running. You can restart it anytime.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用已关闭',
-					body: '{{appName}} 已停止运行。您可以随时重启它。'
+					title: '应用已停止',
+					body: '{{appName}} 已停止运行。可随时重启。'
 				}
 			]
 		},
@@ -299,13 +299,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'App closed',
-					body: '{{title}} has stopped. Cause: stopped manually. You can restart it anytime.'
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: stopped manually. You can restart it anytime.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用已关闭',
-					body: '{{title}} 已停止运行。原因：手动停止。您可以随时重启。'
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：手动停止。可随时重启。'
 				}
 			]
 		},
@@ -325,13 +325,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'App closed',
-					body: '{{title}} has stopped. Cause: high system load. You can restart it anytime.'
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: high system load. You can restart it anytime.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用已关闭',
-					body: '{{title}} 已停止运行。原因：系统负载过高。您可以随时重启。'
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：系统负载过高。可随时重启。'
 				}
 			]
 		},
@@ -351,13 +351,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'App closed',
-					body: '{{title}} has stopped. Cause: initialization issue. You can restart it anytime.'
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: initialization issue. You can restart it anytime.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用已关闭',
-					body: '{{title}} 已停止运行。原因：初始化异常。您可以随时重启。'
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：初始化异常。可随时重启。'
 				}
 			]
 		},
@@ -377,13 +377,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'App closed',
-					body: '{{title}} has stopped. Cause: unknown. You can restart it anytime.'
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: unknown. You can restart it anytime.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用已关闭',
-					body: '{{title}} 已停止运行。原因：未知。您可以随时重启。'
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：未知。可随时重启。'
 				}
 			]
 		},
@@ -403,12 +403,12 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'App closed',
-					body: '{{title}} has stopped. Cause: insufficient vram.'
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: insufficient VRAM.'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用已关闭',
+					title: '应用已停止',
 					body: '{{title}} 已停止运行。原因：显存不足。'
 				}
 			]
@@ -430,12 +430,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'App resumed',
-					body: '{{appName}} has resumed and is ready for use.'
+					body: '{{appName}} is ready to use'
 				},
 				{
 					language: 'zh-CN',
-					title: '应用恢复',
-					body: '{{appName}} 现已恢复，可供您使用。'
+					title: '应用已恢复',
+					body: '{{appName}} 已恢复，可以使用了'
 				}
 			]
 		},
@@ -456,12 +456,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'App uninstalled',
-					body: '{{appName}} and its associated data have been removed.'
+					body: 'Associated data for {{appName}} has been removed'
 				},
 				{
 					language: 'zh-CN',
 					title: '应用已卸载',
-					body: '{{appName}} 及其相关数据已被移除。'
+					body: '{{appName}} 的相关数据已移除'
 				}
 			]
 		},
@@ -482,12 +482,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'Low disk space',
-					body: 'The disk space on node {{nodeName}} is almost full. Please free up space to ensure stable operation.'
+					body: 'Disk space on node {{nodeName}} is almost full. Free up space to keep the system stable.'
 				},
 				{
 					language: 'zh-CN',
 					title: '磁盘空间不足',
-					body: '节点 {{nodeName}} 的磁盘空间即将用尽。请及时清理空间以确保系统稳定运行。'
+					body: '节点 {{nodeName}} 的磁盘空间即将用尽。请清理空间，避免影响系统稳定性。'
 				}
 			]
 		},
@@ -508,12 +508,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'Disk space restored',
-					body: 'The disk space on node {{nodeName}} is now at a safe level.'
+					body: 'Disk space on node {{nodeName}} is back to a safe level'
 				},
 				{
 					language: 'zh-CN',
 					title: '磁盘空间已恢复',
-					body: '节点 {{nodeName}} 的磁盘空间已恢复至安全水平。'
+					body: '节点 {{nodeName}} 的磁盘空间已恢复到安全水平'
 				}
 			]
 		},
@@ -534,12 +534,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'Low memory',
-					body: 'Available memory on node {{nodeName}} is critically low. Please free up memory to ensure stable operation.'
+					body: 'Available memory on node {{nodeName}} is critically low. Free up memory to keep the system stable.'
 				},
 				{
 					language: 'zh-CN',
 					title: '内存不足',
-					body: '节点 {{nodeName}} 的可用内存严重不足。请及时释放内存以确保稳定运行。'
+					body: '节点 {{nodeName}} 的可用内存严重不足。请释放内存，避免影响系统稳定性。'
 				}
 			]
 		},
@@ -560,12 +560,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'Memory usage restored',
-					body: 'Available memory on node {{nodeName}} has returned to a safe level.'
+					body: 'Available memory on node {{nodeName}} is back to a safe level'
 				},
 				{
 					language: 'zh-CN',
 					title: '内存已恢复',
-					body: '节点 {{nodeName}} 的可用内存已恢复至安全水平。'
+					body: '节点 {{nodeName}} 的可用内存已恢复到安全水平'
 				}
 			]
 		},
@@ -585,13 +585,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Low PID',
-					body: 'Available process IDs (PIDs) on node {{nodeName}} are critically low. Consider stopping unnecessary processes to ensure system stability.'
+					title: 'Low process ID availability',
+					body: 'Available process IDs (PIDs) on node {{nodeName}} are critically low. Stop unnecessary processes to keep the system stable.'
 				},
 				{
 					language: 'zh-CN',
 					title: 'PID 数量不足',
-					body: '节点 {{nodeName}} 的可用进程 ID (PID) 严重不足。请考虑停止非必要进程以确保系统稳定。'
+					body: '节点 {{nodeName}} 的可用进程 ID (PID) 严重不足。请停止非必要进程，避免影响系统稳定性。'
 				}
 			]
 		},
@@ -612,12 +612,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'PID usage restored',
-					body: 'Process ID (PID) usage on node {{nodeName}} has returned to a safe level.'
+					body: 'Process ID (PID) usage on node {{nodeName}} is back to a safe level'
 				},
 				{
 					language: 'zh-CN',
 					title: 'PID 数量已恢复',
-					body: '节点 {{nodeName}} 的进程 ID (PID) 数量已恢复至安全水平。'
+					body: '节点 {{nodeName}} 的进程 ID (PID) 数量已恢复到安全水平'
 				}
 			]
 		},
@@ -637,13 +637,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'New user created',
-					body: 'User {{user}} was successfully created.'
+					title: 'User added',
+					body: 'User {{user}} was added'
 				},
 				{
 					language: 'zh-CN',
-					title: '新创建创建',
-					body: '用户 {{user}} 已成功创建。'
+					title: '用户已添加',
+					body: '用户 {{user}} 已添加'
 				}
 			]
 		},
@@ -664,12 +664,12 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'User deleted',
-					body: 'User {{user}} was successfully deleted.'
+					body: 'User {{user}} was deleted'
 				},
 				{
 					language: 'zh-CN',
 					title: '用户已删除',
-					body: '用户 {{user}} 已成功删除。'
+					body: '用户 {{user}} 已删除'
 				}
 			]
 		},
@@ -689,13 +689,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Authorize payment access',
-					body: 'Olares Market is requesting access to your payment profile. Please confirm that you initiated this request.'
+					title: 'Authorize payment access?',
+					body: 'Olares Market wants to access your payment profile. Continue only if you started this request.'
 				},
 				{
 					language: 'zh-CN',
-					title: '授权支付访问',
-					body: 'Olares Market 正在请求访问您的支付配置信息。请确认该请求由您本人发起。'
+					title: '授权访问支付信息？',
+					body: 'Olares Market 正在请求访问支付信息。仅在本人发起请求时继续。'
 				}
 			]
 		},
@@ -715,13 +715,13 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Authorize purchase',
-					body: 'You are authorizing a payment request for this application. Please confirm to proceed.'
+					title: 'Authorize purchase?',
+					body: 'You’re authorizing a payment for this app. Continue only if you started this purchase.'
 				},
 				{
 					language: 'zh-CN',
-					title: '授权购买',
-					body: '您正在授权该应用的支付请求。请点击确认以继续。'
+					title: '授权购买？',
+					body: '此应用正在请求付款授权。仅在本人发起购买时继续。'
 				}
 			]
 		},
