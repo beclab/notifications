@@ -20,6 +20,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '用户已登录',
 					body: '用户 {{user}} 已登录 Olares'
+				},
+				{
+					language: 'de-DE',
+					title: 'Benutzer angemeldet',
+					body: 'Benutzer {{user}} hat sich bei Olares angemeldet'
+				},
+				{
+					language: 'es-ES',
+					title: 'Usuario conectado',
+					body: 'El usuario {{user}} ha iniciado sesión en Olares'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Utilisateur connecté',
+					body: 'L’utilisateur {{user}} s’est connecté à Olares'
+				},
+				{
+					language: 'it-IT',
+					title: 'Accesso effettuato',
+					body: 'L’utente {{user}} ha effettuato l’accesso a Olares'
+				},
+				{
+					language: 'ja-JP',
+					title: 'ユーザーがログインしました',
+					body: 'ユーザー{{user}}がOlaresにログインしました'
 				}
 			]
 		},
@@ -46,6 +71,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: 'Vault 已更新',
 					body: 'Vault 数据已是最新'
+				},
+				{
+					language: 'de-DE',
+					title: 'Vault aktualisiert',
+					body: 'Ihre Vault-Daten sind auf dem neuesten Stand'
+				},
+				{
+					language: 'es-ES',
+					title: 'Vault actualizado',
+					body: 'Tus datos de Vault están actualizados'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Vault mis à jour',
+					body: 'Vos données Vault sont à jour'
+				},
+				{
+					language: 'it-IT',
+					title: 'Vault aggiornato',
+					body: 'I dati di Vault sono aggiornati'
+				},
+				{
+					language: 'ja-JP',
+					title: 'Vaultが更新されました',
+					body: 'Vaultのデータは最新です'
 				}
 			]
 		},
@@ -72,6 +122,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: 'Vault 已更新',
 					body: 'Vault 数据已是最新'
+				},
+				{
+					language: 'de-DE',
+					title: 'Vault aktualisiert',
+					body: 'Ihre Vault-Daten sind auf dem neuesten Stand'
+				},
+				{
+					language: 'es-ES',
+					title: 'Vault actualizado',
+					body: 'Tus datos de Vault están actualizados'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Vault mis à jour',
+					body: 'Vos données Vault sont à jour'
+				},
+				{
+					language: 'it-IT',
+					title: 'Vault aggiornato',
+					body: 'I dati di Vault sono aggiornati'
+				},
+				{
+					language: 'ja-JP',
+					title: 'Vaultが更新されました',
+					body: 'Vaultのデータは最新です'
 				}
 			]
 		},
@@ -82,7 +157,7 @@ export const TemplateList = [
 	},
 	{
 		topic: MessageTopic.SIGN,
-		name: 'Login Olares Web',
+		name: 'Log in to Olares',
 		appId: 'system',
 		appName: 'System',
 		appTemplateId: 'system.second.verification',
@@ -98,6 +173,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '登录 Olares？',
 					body: 'Olares ID {{user}} 正在用于登录 Olares。如是本人操作，请选择确认。否则请选择取消。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Bei Olares anmelden?',
+					body: 'Ihre Olares ID {{user}} wird verwendet, um sich bei Olares anzumelden. Tippen Sie auf Bestätigen, um fortzufahren, oder auf Abbrechen, wenn dies nicht von Ihnen war'
+				},
+				{
+					language: 'es-ES',
+					title: '¿Iniciar sesión en Olares?',
+					body: 'Tu Olares ID {{user}} se está utilizando para iniciar sesión en Olares. Selecciona Confirmar para continuar o Cancelar si no has sido tú.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Connexion à Olares ?',
+					body: 'Votre Olares ID {{user}} est utilisé pour se connecter à Olares. Sélectionnez Confirmer pour continuer, ou Annuler si ce n’était pas vous.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Accedi a Olares?',
+					body: 'Il tuo Olares ID {{user}} è in uso per accedere a Olares. Seleziona Conferma per continuare o Annulla se non sei stato tu.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'Olaresにログインしますか？',
+					body: 'お使いのOlares ID {{user}}がOlaresへのログインに使用されています。本人の操作の場合は「確認」を、そうでない場合は「キャンセル」を選択してください。'
 				}
 			]
 		},
@@ -108,7 +208,7 @@ export const TemplateList = [
 	},
 	{
 		topic: MessageTopic.SIGN,
-		name: 'Bind Olares Space',
+		name: 'Log in to Olares Space',
 		appId: 'settings',
 		appName: 'Settings',
 		appTemplateId: 'settings.bind.space',
@@ -124,6 +224,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '登录 Olares Space？',
 					body: 'Olares ID {{terminusName}} 正在用于登录 Olares Space。如是本人操作，请选择确认。否则请选择取消。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Bei Olares Space anmelden?',
+					body: 'Ihre Olares ID {{terminusName}} wird verwendet, um sich bei Olares Space anzumelden. Tippen Sie auf Bestätigen, um fortzufahren, oder auf Abbrechen, wenn dies nicht von Ihnen war'
+				},
+				{
+					language: 'es-ES',
+					title: '¿Iniciar sesión en Olares Space?',
+					body: 'Tu Olares ID {{terminusName}} se está utilizando para iniciar sesión en Olares Space. Selecciona Confirmar para continuar o Cancelar si no has sido tú.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Connexion à Olares Space ?',
+					body: 'Votre Olares ID {{terminusName}} est utilisé pour se connecter à Olares Space. Sélectionnez Confirmer pour continuer, ou Annuler si ce n’était pas vous.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Accedi a Olares Space?',
+					body: 'Il tuo Olares ID {{terminusName}} è in uso per accedere a Olares Space. Seleziona Conferma per continuare o Annulla se non sei stato tu.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'Olares Spaceにログインしますか？',
+					body: 'お使いのOlares ID {{terminusName}}がOlares Spaceへのログインに使用されています。本人の操作の場合は「確認」を、そうでない場合は「キャンセル」を選択してください。'
 				}
 			]
 		},
@@ -160,7 +285,7 @@ export const TemplateList = [
 	},
 	{
 		topic: MessageTopic.SIGN,
-		name: 'Bind New Ethereum Address',
+		name: 'Connect Ethereum address',
 		appId: 'settings',
 		appName: 'Settings',
 		appTemplateId: 'settings.bind.ethereum',
@@ -169,13 +294,38 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Bind new Ethereum address?',
-					body: 'Your Olares ID {{terminusName}} is requesting to bind Ethereum address {{address}}. Select Confirm to continue, or Cancel if this wasn’t you.'
+					title: 'Connect new Ethereum address?',
+					body: 'Your Olares ID {{terminusName}} is requesting to connect Ethereum address {{address}}. Select Confirm to continue, or Cancel if this wasn’t you.'
 				},
 				{
 					language: 'zh-CN',
-					title: '绑定新的以太坊地址？',
-					body: 'Olares ID {{terminusName}} 正在请求绑定以太坊地址 {{address}}。如是本人操作，请选择确认。否则请选择取消。'
+					title: '连接新的以太坊地址？',
+					body: 'Olares ID {{terminusName}} 正在请求连接以太坊地址 {{address}}。如是本人操作，请选择确认。否则请选择取消。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Neue Ethereum-Adresse verbinden?',
+					body: 'Ihre Olares ID {{terminusName}} beantragt die Verbindung der Ethereum-Adresse {{address}}. Tippen Sie auf Bestätigen, um fortzufahren, oder auf Abbrechen, wenn dies nicht von Ihnen war'
+				},
+				{
+					language: 'es-ES',
+					title: '¿Conectar nueva dirección de Ethereum?',
+					body: 'Tu Olares ID {{terminusName}} solicita conectar la dirección de Ethereum {{address}}. Selecciona Confirmar para continuar o Cancelar si no has sido tú.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Connecter une nouvelle adresse Ethereum ?',
+					body: 'Votre Olares ID {{terminusName}} demande la connexion de l’adresse Ethereum {{address}}. Sélectionnez Confirmer pour continuer, ou Annuler si ce n’était pas vous.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Collegare un nuovo indirizzo Ethereum?',
+					body: 'Il tuo Olares ID {{terminusName}} richiede di collegare l’indirizzo Ethereum {{address}}. Seleziona Conferma per continuare o Annulla se non sei stato tu.'
+				},
+				{
+					language: 'ja-JP',
+					title: '新しいEthereumアドレスを接続しますか？',
+					body: 'お使いのOlares ID {{terminusName}}がEthereumアドレス{{address}}の接続を求めています。本人の操作の場合は「確認」を、そうでない場合は「キャンセル」を選択してください。'
 				}
 			]
 		},
@@ -186,7 +336,7 @@ export const TemplateList = [
 	},
 	{
 		topic: MessageTopic.SIGN,
-		name: 'Remove Bind Ethereum Address',
+		name: 'Disconnect Ethereum address',
 		appId: 'settings',
 		appName: 'Settings',
 		appTemplateId: 'settings.unbind.ethereum',
@@ -195,13 +345,38 @@ export const TemplateList = [
 			create: [
 				{
 					language: 'en-US',
-					title: 'Unbind Ethereum address?',
-					body: 'Your Olares ID {{terminusName}} is requesting to unbind Ethereum address {{address}}. Select Confirm to continue, or Cancel if this wasn’t you.'
+					title: 'Disconnect Ethereum address?',
+					body: 'Your Olares ID {{terminusName}} is requesting to disconnect Ethereum address {{address}}. Select Confirm to continue, or Cancel if this wasn’t you.'
 				},
 				{
 					language: 'zh-CN',
-					title: '解绑以太坊地址？',
-					body: 'Olares ID {{terminusName}} 正在请求解绑以太坊地址 {{address}}。如是本人操作，请选择确认。否则请选择取消。'
+					title: '断开以太坊地址连接？',
+					body: 'Olares ID {{terminusName}} 正在请求断开与以太坊地址 {{address}} 的连接。如是本人操作，请选择确认。否则请选择取消。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Ethereum-Adresse trennen?',
+					body: 'Ihre Olares ID {{terminusName}} beantragt die Trennung der Ethereum-Adresse {{address}}. Tippen Sie auf Bestätigen, um fortzufahren, oder auf Abbrechen, wenn dies nicht von Ihnen war'
+				},
+				{
+					language: 'es-ES',
+					title: '¿Desconectar dirección de Ethereum?',
+					body: 'Tu Olares ID {{terminusName}} solicita desconectar la dirección de Ethereum {{address}}. Selecciona Confirmar para continuar o Cancelar si no has sido tú.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Déconnecter l’adresse Ethereum ?',
+					body: 'Votre Olares ID {{terminusName}} demande la déconnexion de l’adresse Ethereum {{address}}. Sélectionnez Confirmer pour continuer, ou Annuler si ce n’était pas vous.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Scollegare l’indirizzo Ethereum?',
+					body: 'Il tuo Olares ID {{terminusName}} richiede di scollegare l’indirizzo Ethereum {{address}}. Seleziona Conferma per continuare o Annulla se non sei stato tu.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'Ethereumアドレスの接続を解除しますか？',
+					body: 'お使いのOlares ID {{terminusName}}がEthereumアドレス{{address}}の接続解除を求めています。本人の操作の場合は「確認」を、そうでない場合は「キャンセル」を選択してください。'
 				}
 			]
 		},
@@ -228,6 +403,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '设置 NFT 头像？',
 					body: 'Olares ID {{terminusName}} 正在请求设置 NFT 头像。如是本人操作，请选择确认。否则请选择取消。'
+				},
+				{
+					language: 'de-DE',
+					title: 'NFT-Avatar festlegen?',
+					body: 'Ihre Olares ID {{terminusName}} beantragt das Festlegen eines NFT-Avatars. Tippen Sie auf Bestätigen, um fortzufahren, oder auf Abbrechen, wenn dies nicht von Ihnen war'
+				},
+				{
+					language: 'es-ES',
+					title: '¿Establecer avatar NFT?',
+					body: 'Tu Olares ID {{terminusName}} está estableciendo un avatar NFT. Selecciona Confirmar para continuar o Cancelar si no has sido tú.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Définir un avatar NFT ?',
+					body: 'Votre Olares ID {{terminusName}} souhaite définir un avatar NFT. Sélectionnez Confirmer pour continuer, ou Annuler si ce n’était pas vous.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Impostare avatar NFT?',
+					body: 'Il tuo Olares ID {{terminusName}} sta impostando un avatar NFT. Seleziona Conferma per continuare o Annulla se non sei stato tu.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'NFTアバターを設定しますか？',
+					body: 'お使いのOlares ID {{terminusName}}がNFTアバターの設定を求めています。本人の操作の場合は「確認」を、そうでない場合は「キャンセル」を選択してください。'
 				}
 			]
 		},
@@ -254,6 +454,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已安装',
 					body: '{{appName}} 可以使用了'
+				},
+				{
+					language: 'de-DE',
+					title: 'App installiert',
+					body: '{{appName}} ist einsatzbereit'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación instalada',
+					body: '{{appName}} está lista para usarse'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application installée',
+					body: '{{appName}} est prêt à l’emploi'
+				},
+				{
+					language: 'it-IT',
+					title: 'App installata',
+					body: '{{appName}} è pronta per l’uso'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリをインストールしました',
+					body: '{{appName}}をご利用いただけます'
 				}
 			]
 		},
@@ -280,6 +505,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已停止',
 					body: '{{appName}} 已停止运行。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{appName}} wurde angehalten. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{appName}} dejó de ejecutarse. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{appName}} a cessé de fonctionner. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{appName}} si è arrestata. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{appName}}の実行を停止しました。いつでも再起動できます。'
 				}
 			]
 		},
@@ -306,6 +556,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已停止',
 					body: '{{title}} 已停止运行。原因：手动停止。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Manuelles Anhalten. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: detenida manualmente. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : arrêt manuel. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: arresto manuale. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行を停止しました。原因：手動停止。いつでも再起動できます。'
 				}
 			]
 		},
@@ -332,6 +607,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已停止',
 					body: '{{title}} 已停止运行。原因：系统负载过高。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Hohe Systemlast. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: carga del sistema elevada. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : charge système élevée. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: carico del sistema elevato. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行を停止しました。原因：システム負荷が高すぎます。いつでも再起動できます。'
 				}
 			]
 		},
@@ -358,6 +658,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已停止',
 					body: '{{title}} 已停止运行。原因：初始化异常。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Initialisierungsproblem. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: problema de inicialización. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : problème d’initialisation. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: problema di inizializzazione. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行を停止しました。原因：初期化エラー。いつでも再起動できます。'
 				}
 			]
 		},
@@ -384,6 +709,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已停止',
 					body: '{{title}} 已停止运行。原因：未知。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Unbekannt. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: desconocido. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : inconnue. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: sconosciuto. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行を停止しました。原因：不明。いつでも再起動できます。'
 				}
 			]
 		},
@@ -404,12 +754,37 @@ export const TemplateList = [
 				{
 					language: 'en-US',
 					title: 'App stopped',
-					body: '{{title}} stopped running. Reason: insufficient VRAM.'
+					body: '{{title}} stopped running. Reason: insufficient VRAM. You can restart it anytime.'
 				},
 				{
 					language: 'zh-CN',
 					title: '应用已停止',
-					body: '{{title}} 已停止运行。原因：显存不足。'
+					body: '{{title}} 已停止运行。原因：显存不足。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Unzureichender VRAM. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: VRAM insuficiente. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : VRAM insuffisante. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: VRAM insufficiente. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行を停止しました。原因：VRAMが不足しています。いつでも再起動できます。'
 				}
 			]
 		},
@@ -436,6 +811,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已恢复',
 					body: '{{appName}} 已恢复，可以使用了'
+				},
+				{
+					language: 'de-DE',
+					title: 'App fortgesetzt',
+					body: '{{appName}} ist einsatzbereit'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación reanudada',
+					body: '{{appName}} está lista para usarse'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application reprise',
+					body: '{{appName}} est prêt à l’emploi'
+				},
+				{
+					language: 'it-IT',
+					title: 'App ripristinata',
+					body: '{{appName}} è pronta per l’uso'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを再開しました',
+					body: '{{appName}}が復旧し、ご利用いただけます'
 				}
 			]
 		},
@@ -462,6 +862,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '应用已卸载',
 					body: '{{appName}} 的相关数据已移除'
+				},
+				{
+					language: 'de-DE',
+					title: 'App deinstalliert',
+					body: 'Zugehörige Daten für {{appName}} wurden entfernt'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación desinstalada',
+					body: 'Se han eliminado los datos asociados de {{appName}}'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application désinstallée',
+					body: 'Les données associées à {{appName}} ont été supprimées'
+				},
+				{
+					language: 'it-IT',
+					title: 'App disinstallata',
+					body: 'I dati associati a {{appName}} sono stati rimossi'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリをアンインストールしました',
+					body: '{{appName}}の関連データを削除しました'
 				}
 			]
 		},
@@ -488,6 +913,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '磁盘空间不足',
 					body: '节点 {{nodeName}} 的磁盘空间即将用尽。请清理空间，避免影响系统稳定性。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Wenig Speicherplatz',
+					body: 'Der Speicherplatz auf Knoten {{nodeName}} ist fast voll. Geben Sie Speicherplatz frei, um das System stabil zu halten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Poco espacio en disco',
+					body: 'El espacio en disco del nodo {{nodeName}} está casi lleno. Libera espacio para mantener estable el sistema.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Espace disque faible',
+					body: 'L’espace disque sur le nœud {{nodeName}} est presque plein. Libérez de l’espace pour maintenir le système stable.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Spazio su disco insufficiente',
+					body: 'Lo spazio su disco del nodo {{nodeName}} è quasi esaurito. Libera spazio per mantenere stabile il sistema.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'ディスク容量が不足しています',
+					body: 'ノード{{nodeName}}のディスク容量が不足しています。空き容量を確保し、システムの安定稼働を維持してください。'
 				}
 			]
 		},
@@ -514,6 +964,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '磁盘空间已恢复',
 					body: '节点 {{nodeName}} 的磁盘空间已恢复到安全水平'
+				},
+				{
+					language: 'de-DE',
+					title: 'Speicherplatz wiederhergestellt',
+					body: 'Der Speicherplatz auf Knoten {{nodeName}} ist wieder auf einem sicheren Niveau'
+				},
+				{
+					language: 'es-ES',
+					title: 'Espacio en disco restaurado',
+					body: 'El espacio en disco del nodo {{nodeName}} volvió a un nivel seguro'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Espace disque restauré',
+					body: 'L’espace disque sur le nœud {{nodeName}} est revenu à un niveau sûr'
+				},
+				{
+					language: 'it-IT',
+					title: 'Spazio su disco ripristinato',
+					body: 'Lo spazio su disco del nodo {{nodeName}} è tornato a un livello sicuro'
+				},
+				{
+					language: 'ja-JP',
+					title: 'ディスク容量が回復しました',
+					body: 'ノード{{nodeName}}のディスク容量が安全な水準に戻りました'
 				}
 			]
 		},
@@ -540,6 +1015,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '内存不足',
 					body: '节点 {{nodeName}} 的可用内存严重不足。请释放内存，避免影响系统稳定性。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Wenig Arbeitsspeicher',
+					body: 'Der verfügbare Arbeitsspeicher auf Knoten {{nodeName}} ist kritisch niedrig. Geben Sie Arbeitsspeicher frei, um das System stabil zu halten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Poca memoria',
+					body: 'La memoria disponible del nodo {{nodeName}} es críticamente baja. Libera memoria para mantener estable el sistema.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Mémoire faible',
+					body: 'La mémoire disponible sur le nœud {{nodeName}} est à un niveau critique. Libérez de la mémoire pour maintenir le système stable.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Memoria insufficiente',
+					body: 'La memoria disponibile sul nodo {{nodeName}} è gravemente insufficiente. Libera memoria per mantenere stabile il sistema.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'メモリが不足しています',
+					body: 'ノード{{nodeName}}の空きメモリが極めて少なくなっています。メモリを解放し、システムの安定稼働を維持してください。'
 				}
 			]
 		},
@@ -566,6 +1066,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '内存已恢复',
 					body: '节点 {{nodeName}} 的可用内存已恢复到安全水平'
+				},
+				{
+					language: 'de-DE',
+					title: 'Arbeitsspeichernutzung wiederhergestellt',
+					body: 'Der verfügbare Arbeitsspeicher auf Knoten {{nodeName}} ist wieder auf einem sicheren Niveau'
+				},
+				{
+					language: 'es-ES',
+					title: 'Uso de memoria restaurado',
+					body: 'La memoria disponible del nodo {{nodeName}} volvió a un nivel seguro'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Utilisation de la mémoire restaurée',
+					body: 'La mémoire disponible sur le nœud {{nodeName}} est revenue à un niveau sûr'
+				},
+				{
+					language: 'it-IT',
+					title: 'Uso della memoria ripristinato',
+					body: 'La memoria disponibile sul nodo {{nodeName}} è tornata a un livello sicuro'
+				},
+				{
+					language: 'ja-JP',
+					title: 'メモリが回復しました',
+					body: 'ノード{{nodeName}}の空きメモリが安全な水準に戻りました'
 				}
 			]
 		},
@@ -592,6 +1117,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: 'PID 数量不足',
 					body: '节点 {{nodeName}} 的可用进程 ID (PID) 严重不足。请停止非必要进程，避免影响系统稳定性。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Wenige verfügbare Prozess-IDs',
+					body: 'Die verfügbaren Prozess-IDs (PIDs) auf Knoten {{nodeName}} sind kritisch niedrig. Beenden Sie unnötige Prozesse, um das System stabil zu halten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Poca disponibilidad de PID',
+					body: 'Los identificadores de proceso (PID) disponibles en el nodo {{nodeName}} son críticamente bajos. Detén los procesos innecesarios para mantener estable el sistema.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Disponibilité des PID faible',
+					body: 'Les identifiants de processus (PID) disponibles sur le nœud {{nodeName}} sont presque épuisés. Arrêtez les processus inutiles pour maintenir le système stable.'
+				},
+				{
+					language: 'it-IT',
+					title: 'PID disponibili insufficienti',
+					body: 'I PID disponibili sul nodo {{nodeName}} sono gravemente insufficienti. Arresta i processi non necessari per mantenere stabile il sistema.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'PIDが不足しています',
+					body: 'ノード{{nodeName}}の空きプロセスID（PID）が極めて少なくなっています。不要なプロセスを終了し、システムの安定稼働を維持してください。'
 				}
 			]
 		},
@@ -618,6 +1168,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: 'PID 数量已恢复',
 					body: '节点 {{nodeName}} 的进程 ID (PID) 数量已恢复到安全水平'
+				},
+				{
+					language: 'de-DE',
+					title: 'PID-Nutzung wiederhergestellt',
+					body: 'Die Nutzung der Prozess-IDs (PIDs) auf Knoten {{nodeName}} ist wieder auf einem sicheren Niveau'
+				},
+				{
+					language: 'es-ES',
+					title: 'Uso de PID restaurado',
+					body: 'El uso de identificadores de proceso (PID) en el nodo {{nodeName}} volvió a un nivel seguro'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Utilisation des PID restaurée',
+					body: 'L’utilisation des identifiants de processus (PID) sur le nœud {{nodeName}} est revenue à un niveau sûr'
+				},
+				{
+					language: 'it-IT',
+					title: 'Uso dei PID ripristinato',
+					body: 'L’uso dei PID sul nodo {{nodeName}} è tornato a un livello sicuro'
+				},
+				{
+					language: 'ja-JP',
+					title: 'PIDが回復しました',
+					body: 'ノード{{nodeName}}のプロセスID（PID）数が安全な水準に戻りました'
 				}
 			]
 		},
@@ -644,6 +1219,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '用户已添加',
 					body: '用户 {{user}} 已添加'
+				},
+				{
+					language: 'de-DE',
+					title: 'Benutzer hinzugefügt',
+					body: 'Benutzer {{user}} wurde hinzugefügt'
+				},
+				{
+					language: 'es-ES',
+					title: 'Usuario añadido',
+					body: 'Se añadió al usuario {{user}}'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Utilisateur ajouté',
+					body: 'L’utilisateur {{user}} a été ajouté'
+				},
+				{
+					language: 'it-IT',
+					title: 'Utente aggiunto',
+					body: 'L’utente {{user}} è stato aggiunto'
+				},
+				{
+					language: 'ja-JP',
+					title: 'ユーザーを追加しました',
+					body: 'ユーザー{{user}}を追加しました'
 				}
 			]
 		},
@@ -670,6 +1270,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '用户已删除',
 					body: '用户 {{user}} 已删除'
+				},
+				{
+					language: 'de-DE',
+					title: 'Benutzer gelöscht',
+					body: 'Benutzer {{user}} wurde gelöscht'
+				},
+				{
+					language: 'es-ES',
+					title: 'Usuario eliminado',
+					body: 'Se eliminó al usuario {{user}}'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Utilisateur supprimé',
+					body: 'L’utilisateur {{user}} a été supprimé'
+				},
+				{
+					language: 'it-IT',
+					title: 'Utente eliminato',
+					body: 'L’utente {{user}} è stato eliminato'
+				},
+				{
+					language: 'ja-JP',
+					title: 'ユーザーを削除しました',
+					body: 'ユーザー{{user}}を削除しました'
 				}
 			]
 		},
@@ -696,6 +1321,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '授权访问支付信息？',
 					body: 'Olares Market 正在请求访问支付信息。仅在本人发起请求时继续。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Zahlungszugriff autorisieren?',
+					body: 'Olares Market möchte auf Ihr Zahlungsprofil zugreifen. Fahren Sie nur fort, wenn Sie diese Anfrage gestartet haben'
+				},
+				{
+					language: 'es-ES',
+					title: '¿Autorizar acceso a pagos?',
+					body: 'Olares Market quiere acceder a tu perfil de pago. Continúa solo si tú iniciaste esta solicitud.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Autoriser l’accès aux informations de paiement ?',
+					body: 'Olares Market souhaite accéder à votre profil de paiement. Continuez uniquement si vous avez initié cette demande.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Autorizzare l’accesso ai pagamenti?',
+					body: 'Olares Market richiede di accedere al tuo profilo di pagamento. Continua solo se hai avviato tu questa richiesta.'
+				},
+				{
+					language: 'ja-JP',
+					title: '支払い情報へのアクセスを許可しますか？',
+					body: 'Olares Marketが支払い情報へのアクセスを求めています。ご本人様がリクエストを開始した場合のみ、続行してください。'
 				}
 			]
 		},
@@ -722,6 +1372,31 @@ export const TemplateList = [
 					language: 'zh-CN',
 					title: '授权购买？',
 					body: '此应用正在请求付款授权。仅在本人发起购买时继续。'
+				},
+				{
+					language: 'de-DE',
+					title: 'Kauf autorisieren?',
+					body: 'Sie autorisieren eine Zahlung für diese App. Fahren Sie nur fort, wenn Sie diesen Kauf gestartet haben'
+				},
+				{
+					language: 'es-ES',
+					title: '¿Autorizar compra?',
+					body: 'Estás autorizando un pago por esta aplicación. Continúa solo si tú iniciaste esta compra.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Autoriser l’achat ?',
+					body: 'Vous autorisez un paiement pour cette application. Continuez uniquement si vous avez initié cet achat.'
+				},
+				{
+					language: 'it-IT',
+					title: 'Autorizzare l’acquisto?',
+					body: 'Stai autorizzando un pagamento per questa app. Continua solo se hai avviato tu questo acquisto.'
+				},
+				{
+					language: 'ja-JP',
+					title: '購入を許可しますか？',
+					body: 'このアプリが支払いの承認を求めています。ご本人様が購入を開始した場合のみ、続行してください。'
 				}
 			]
 		},
