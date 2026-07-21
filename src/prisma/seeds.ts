@@ -7,7 +7,7 @@ export const TemplateList = [
 		name: 'Login',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'login_v2',
+		appTemplateId: 'login_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -58,7 +58,7 @@ export const TemplateList = [
 		name: 'Vault Updated',
 		appId: 'vault',
 		appName: 'Vault',
-		appTemplateId: 'vault.account.update',
+		appTemplateId: 'vault.account.update_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -109,7 +109,7 @@ export const TemplateList = [
 		name: 'Vault Updated',
 		appId: 'vault',
 		appName: 'Vault',
-		appTemplateId: 'vault.org.update',
+		appTemplateId: 'vault.org.update_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -160,7 +160,7 @@ export const TemplateList = [
 		name: 'Log in to Olares',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'system.second.verification',
+		appTemplateId: 'system.second.verification_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -211,7 +211,7 @@ export const TemplateList = [
 		name: 'Log in to Olares Space',
 		appId: 'settings',
 		appName: 'Settings',
-		appTemplateId: 'settings.bind.space',
+		appTemplateId: 'settings.bind.space_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -288,7 +288,7 @@ export const TemplateList = [
 		name: 'Connect Ethereum address',
 		appId: 'settings',
 		appName: 'Settings',
-		appTemplateId: 'settings.bind.ethereum',
+		appTemplateId: 'settings.bind.ethereum_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -339,7 +339,7 @@ export const TemplateList = [
 		name: 'Disconnect Ethereum address',
 		appId: 'settings',
 		appName: 'Settings',
-		appTemplateId: 'settings.unbind.ethereum',
+		appTemplateId: 'settings.unbind.ethereum_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -390,7 +390,7 @@ export const TemplateList = [
 		name: 'Bind NFT Avatar',
 		appId: 'profile',
 		appName: 'Profile',
-		appTemplateId: 'profile.bind.nft',
+		appTemplateId: 'profile.bind.nft_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -441,7 +441,7 @@ export const TemplateList = [
 		name: 'Application Installed',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'installed',
+		appTemplateId: 'installed_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -492,7 +492,7 @@ export const TemplateList = [
 		name: 'Application Stopped',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'stopped',
+		appTemplateId: 'stopped_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -543,7 +543,7 @@ export const TemplateList = [
 		name: 'Application Stopped',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'stopped_by_user_v1',
+		appTemplateId: 'stopped_by_user_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -594,7 +594,7 @@ export const TemplateList = [
 		name: 'Application Stopped',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'stopped_evicted',
+		appTemplateId: 'stopped_evicted_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -645,7 +645,7 @@ export const TemplateList = [
 		name: 'Application Stopped',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'stopped_init_failed',
+		appTemplateId: 'stopped_init_failed_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -696,7 +696,7 @@ export const TemplateList = [
 		name: 'Application Stopped',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'stopped_unknown',
+		appTemplateId: 'stopped_unknown_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -747,7 +747,7 @@ export const TemplateList = [
 		name: 'Application Stopped',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'stopped_hami_unschedulable',
+		appTemplateId: 'stopped_hami_unschedulable_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -798,7 +798,7 @@ export const TemplateList = [
 		name: 'Application Resumed',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'resumed',
+		appTemplateId: 'resumed_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -849,7 +849,7 @@ export const TemplateList = [
 		name: 'Application Uninstalled',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'uninstalled',
+		appTemplateId: 'uninstalled_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -900,7 +900,7 @@ export const TemplateList = [
 		name: 'Disk has pressure',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'disk_pressure',
+		appTemplateId: 'disk_pressure_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -951,7 +951,7 @@ export const TemplateList = [
 		name: 'Disk pressure released',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'disk_no_pressure',
+		appTemplateId: 'disk_no_pressure_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1002,7 +1002,7 @@ export const TemplateList = [
 		name: 'Memory has pressure',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'memory_pressure',
+		appTemplateId: 'memory_pressure_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1053,7 +1053,7 @@ export const TemplateList = [
 		name: 'Memory pressure released',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'memory_no_pressure',
+		appTemplateId: 'memory_no_pressure_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1104,7 +1104,7 @@ export const TemplateList = [
 		name: 'Pid has pressure',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'pid_pressure',
+		appTemplateId: 'pid_pressure_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1155,7 +1155,7 @@ export const TemplateList = [
 		name: 'Pid pressure released',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'pid_no_pressure',
+		appTemplateId: 'pid_no_pressure_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1206,7 +1206,7 @@ export const TemplateList = [
 		name: 'Create',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'create_v2',
+		appTemplateId: 'create_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1257,7 +1257,7 @@ export const TemplateList = [
 		name: 'Delete',
 		appId: 'system',
 		appName: 'System',
-		appTemplateId: 'delete_v2',
+		appTemplateId: 'delete_v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1308,7 +1308,7 @@ export const TemplateList = [
 		name: 'Application Payment',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'market.fetch.payment.v1',
+		appTemplateId: 'market.fetch.payment.v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [
@@ -1359,7 +1359,7 @@ export const TemplateList = [
 		name: 'Application Payment',
 		appId: 'market',
 		appName: 'Market',
-		appTemplateId: 'market.payment.v1',
+		appTemplateId: 'market.payment.v3',
 		defaultLanguage: 'en-US',
 		content: {
 			create: [

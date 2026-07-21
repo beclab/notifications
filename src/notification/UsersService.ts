@@ -115,7 +115,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									data.payload.user,
 									'system',
-									'login_v2',
+									'login_v3',
 									data.payload
 								);
 							} else if (data.topic == 'OnFirstFactor') {
@@ -131,7 +131,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									data.payload.user,
 									'system',
-									'system.second.verification',
+									'system.second.verification_v3',
 									payload
 								);
 							} else if (data.topic == 'Logout') {
@@ -166,7 +166,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									await this.natsClientPublish(
 										user.username,
 										'system',
-										'create_v2',
+										'create_v3',
 										data.payload
 									);
 								});
@@ -185,7 +185,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									await this.natsClientPublish(
 										user.username,
 										'system',
-										'delete_v2',
+										'delete_v3',
 										data.payload
 									);
 								});
@@ -204,7 +204,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									data.user,
 									'market',
-									'market.payment.v1',
+									'market.payment.v3',
 									payload
 								);
 							} else if (
@@ -224,7 +224,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									data.user,
 									'market',
-									'market.fetch.payment.v1',
+									'market.fetch.payment.v3',
 									payload
 								);
 							} else if (data.topic == 'save_payment_vc') {
@@ -266,7 +266,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									user,
 									'market',
-									'installed',
+									'installed_v3',
 									{
 										appName: title,
 										vars: {
@@ -279,15 +279,16 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								// let Reason = 'unknown';
 								const reason = data.reason || '';
 
-								let templateId = 'stopped_unknown';
+								let templateId = 'stopped_unknown_v3';
 								if (reason == 'StopByUser') {
-									templateId = 'stopped_by_user_v1';
+									templateId = 'stopped_by_user_v3';
 								} else if (reason == 'Evicted') {
-									templateId = 'stopped_evicted';
+									templateId = 'stopped_evicted_v3';
 								} else if (reason == 'InitFailed') {
-									templateId = 'stopped_init_failed';
+									templateId = 'stopped_init_failed_v3';
 								} else if (reason == 'HamiUnschedulable') {
-									templateId = 'stopped_hami_unschedulable';
+									templateId =
+										'stopped_hami_unschedulable_v3';
 								}
 
 								await this.natsClientPublish(
@@ -309,7 +310,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									user,
 									'market',
-									'resumed',
+									'resumed_v3',
 									{
 										appName: title,
 										vars: {
@@ -325,7 +326,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								await this.natsClientPublish(
 									user,
 									'market',
-									'uninstalled',
+									'uninstalled_v3',
 									{
 										appName: title,
 										vars: {
@@ -360,21 +361,21 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 								let realTopic = '';
 								if (topic == 'MemoryPressure') {
 									if (status) {
-										realTopic = 'memory_pressure';
+										realTopic = 'memory_pressure_v3';
 									} else {
-										realTopic = 'memory_no_pressure';
+										realTopic = 'memory_no_pressure_v3';
 									}
 								} else if (topic == 'DiskPressure') {
 									if (status) {
-										realTopic = 'disk_pressure';
+										realTopic = 'disk_pressure_v3';
 									} else {
-										realTopic = 'disk_no_pressure';
+										realTopic = 'disk_no_pressure_v3';
 									}
 								} else if (topic == 'PIDPressure') {
 									if (status) {
-										realTopic = 'pid_pressure';
+										realTopic = 'pid_pressure_v3';
 									} else {
-										realTopic = 'pid_no_pressure';
+										realTopic = 'pid_no_pressure_v3';
 									}
 								}
 
