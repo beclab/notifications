@@ -6,7 +6,8 @@ import {
 } from '@nestjs/common';
 //import { SocketService } from './pgsocket.service';
 import axios from 'axios';
-import { NatsConnection, StringCodec, connect } from 'nats';
+// import { NatsConnection, StringCodec, connect } from 'nats';
+import { connect } from '@nats-io/transport-node';
 import { TemplateService } from './template.service';
 import { autoFuncWithRetry } from '@bytetrade/core';
 
@@ -15,6 +16,8 @@ const NATS_PORT = process.env.NATS_PORT || 4222;
 const NATS_USERNAME = process.env.NATS_USERNAME || '';
 const NATS_PASSWORD = process.env.NATS_PASSWORD || '';
 const nats_url = NATS_HOST + ':' + NATS_PORT;
+
+type NatsConnection = Awaited<ReturnType<typeof connect>>;
 
 export function getNATS(): boolean {
 	const value = process.env.NATS;
@@ -39,7 +42,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 	private readonly logger = new Logger(UsersService.name);
 	private natsClient: NatsConnection;
 
-	private sc;
+	// private sc;
 
 	public users: User[] = [];
 
@@ -77,7 +80,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			`Publishing to NATS subject: ${subject}`,
 			data.appTemplateId
 		);
-		this.natsClient.publish(subject, this.sc.encode(JSON.stringify(data)));
+		this.natsClient.publish(subject, JSON.stringify(data));
 	}
 
 	async handlesMessage(
@@ -94,7 +97,7 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			(async () => {
 				try {
 					for await (const m of sub) {
-						let data = this.sc.decode(m.data);
+						let data: any = m.string(); //this.sc.decode(m.data);
 						this.logger.log('subject payload', app.subject, data);
 						try {
 							data = JSON.parse(data);
@@ -433,7 +436,6 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			this.logger.error('error connecting to NATS:', error);
 			return;
 		}
-		this.sc = StringCodec();
 
 		const subjects = [
 			// {
