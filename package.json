@@ -83,6 +83,9 @@
         ],
         "rootDir": "src",
         "testRegex": ".*\\.spec\\.ts$",
+        "moduleNameMapper": {
+            "^@bytetrade/core$": "<rootDir>/test/bytetrade-core.stub.ts"
+        },
         "transform": {
             "^.+\\.(t|j)s$": "ts-jest"
         },

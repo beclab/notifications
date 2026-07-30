@@ -10,6 +10,7 @@ import axios from 'axios';
 import { connect } from '@nats-io/transport-node';
 import { TemplateService } from './template.service';
 import { autoFuncWithRetry } from '@bytetrade/core';
+import { resolveStopReasonTemplateId } from './stop-reason';
 
 const NATS_HOST = process.env.NATS_HOST || '';
 const NATS_PORT = process.env.NATS_PORT || 4222;
@@ -279,20 +280,9 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 									}
 								);
 							} else if (!!opId && state == 'stopped') {
-								// let Reason = 'unknown';
 								const reason = data.reason || '';
-
-								let templateId = 'stopped_unknown_v3';
-								if (reason == 'StopByUser') {
-									templateId = 'stopped_by_user_v3';
-								} else if (reason == 'Evicted') {
-									templateId = 'stopped_evicted_v3';
-								} else if (reason == 'InitFailed') {
-									templateId = 'stopped_init_failed_v3';
-								} else if (reason == 'HamiUnschedulable') {
-									templateId =
-										'stopped_hami_unschedulable_v3';
-								}
+								const templateId =
+									resolveStopReasonTemplateId(reason);
 
 								await this.natsClientPublish(
 									user,

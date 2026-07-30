@@ -795,6 +795,312 @@ export const TemplateList = [
 	},
 	{
 		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_unschedulable_v3',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: cannot be scheduled. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：无法调度。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Nicht planbar. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: no se puede programar. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : impossible à planifier. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: impossibile da pianificare. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行が停止しました。原因：スケジュールできません。いつでも再起動できます。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_disk_pressure_v3',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: system disk pressure. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：系统磁盘压力。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Hoher Speicherplatzdruck. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: presión de disco del sistema. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : pression disque système. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: pressione del disco di sistema. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行が停止しました。原因：システムのディスク逼迫。いつでも再起動できます。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_system_cpu_pressure_v3',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: system CPU pressure. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：系统 CPU 压力。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Hohe CPU-Auslastung des Systems. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: presión de CPU del sistema. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : pression CPU système. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: pressione della CPU di sistema. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行が停止しました。原因：システムの CPU 逼迫。いつでも再起動できます。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_system_memory_pressure_v3',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: system memory pressure. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：系统内存压力。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Hoher Arbeitsspeicherdruck des Systems. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: presión de memoria del sistema. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : pression mémoire système. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: pressione della memoria di sistema. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行が停止しました。原因：システムのメモリ逼迫。いつでも再起動できます。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_k8s_request_cpu_pressure_v3',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: insufficient allocatable CPU. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：可申请 CPU 不足。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Nicht genügend zuweisbare CPU. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: CPU asignable insuficiente. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : CPU allouable insuffisant. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: CPU allocabile insufficiente. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行が停止しました。原因：割り当て可能な CPU が不足しています。いつでも再起動できます。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
+		name: 'Application Stopped',
+		appId: 'market',
+		appName: 'Market',
+		appTemplateId: 'stopped_k8s_request_memory_pressure_v3',
+		defaultLanguage: 'en-US',
+		content: {
+			create: [
+				{
+					language: 'en-US',
+					title: 'App stopped',
+					body: '{{title}} stopped running. Reason: insufficient allocatable memory. You can restart it anytime.'
+				},
+				{
+					language: 'zh-CN',
+					title: '应用已停止',
+					body: '{{title}} 已停止运行。原因：可申请内存不足。可随时重启。'
+				},
+				{
+					language: 'de-DE',
+					title: 'App angehalten',
+					body: '{{title}} wurde angehalten. Grund: Nicht genügend zuweisbarer Arbeitsspeicher. Sie können sie jederzeit neu starten'
+				},
+				{
+					language: 'es-ES',
+					title: 'Aplicación detenida',
+					body: '{{title}} dejó de ejecutarse. Motivo: memoria asignable insuficiente. Puedes reiniciarla cuando quieras.'
+				},
+				{
+					language: 'fr-FR',
+					title: 'Application arrêtée',
+					body: '{{title}} a cessé de fonctionner. Raison : mémoire allouable insuffisante. Le redémarrage est possible à tout moment.'
+				},
+				{
+					language: 'it-IT',
+					title: 'App arrestata',
+					body: '{{title}} si è arrestata. Motivo: memoria allocabile insufficiente. Puoi riavviarla in qualsiasi momento.'
+				},
+				{
+					language: 'ja-JP',
+					title: 'アプリを停止しました',
+					body: '{{title}}の実行が停止しました。原因：割り当て可能なメモリが不足しています。いつでも再起動できます。'
+				}
+			]
+		},
+		variables: ['title'],
+		level: Level.Info,
+		user: '',
+		status: ActiveStatus.Active
+	},
+	{
+		topic: MessageTopic.Notification,
 		name: 'Application Resumed',
 		appId: 'market',
 		appName: 'Market',
