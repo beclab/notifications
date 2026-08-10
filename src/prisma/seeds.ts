@@ -815,7 +815,7 @@ export const TemplateList = [
 				{
 					language: 'de-DE',
 					title: 'App angehalten',
-					body: '{{title}} wurde angehalten. Grund: Nicht genügend Ressourcen zum Planen der App. Sie können sie jederzeit neu starten'
+					body: '{{title}} wurde angehalten. Grund: Nicht genügend Ressourcen, um die App einzuplanen. Sie können sie jederzeit neu starten'
 				},
 				{
 					language: 'es-ES',
@@ -835,7 +835,7 @@ export const TemplateList = [
 				{
 					language: 'ja-JP',
 					title: 'アプリを停止しました',
-					body: '{{title}}の実行が停止しました。原因：アプリをスケジュールするリソースが不足しています。いつでも再起動できます。'
+					body: '{{title}}の実行が停止しました。原因：アプリのスケジューリングに必要なリソースが不足しています。いつでも再起動できます。'
 				}
 			]
 		},
@@ -866,7 +866,7 @@ export const TemplateList = [
 				{
 					language: 'de-DE',
 					title: 'App angehalten',
-					body: '{{title}} wurde angehalten. Grund: Wenig Systemspeicherplatz. Sie können sie jederzeit neu starten'
+					body: '{{title}} wurde angehalten. Grund: Zu wenig freier Speicherplatz im System. Sie können sie jederzeit neu starten'
 				},
 				{
 					language: 'es-ES',
@@ -937,7 +937,7 @@ export const TemplateList = [
 				{
 					language: 'ja-JP',
 					title: 'アプリを停止しました',
-					body: '{{title}}の実行が停止しました。原因：システムの CPU 使用率が高くなっています。いつでも再起動できます。'
+					body: '{{title}}の実行が停止しました。原因：システムのCPU使用率が高すぎます。いつでも再起動できます。'
 				}
 			]
 		},
@@ -988,7 +988,7 @@ export const TemplateList = [
 				{
 					language: 'ja-JP',
 					title: 'アプリを停止しました',
-					body: '{{title}}の実行が停止しました。原因：システムのメモリ使用率が高くなっています。いつでも再起動できます。'
+					body: '{{title}}の実行が停止しました。原因：システムのメモリ使用率が高すぎます。いつでも再起動できます。'
 				}
 			]
 		},
@@ -1039,7 +1039,7 @@ export const TemplateList = [
 				{
 					language: 'ja-JP',
 					title: 'アプリを停止しました',
-					body: '{{title}}の実行が停止しました。原因：利用可能な CPU が不足しています。いつでも再起動できます。'
+					body: '{{title}}の実行が停止しました。原因：割り当て可能なCPUが不足しています。いつでも再起動できます。'
 				}
 			]
 		},
@@ -1090,7 +1090,7 @@ export const TemplateList = [
 				{
 					language: 'ja-JP',
 					title: 'アプリを停止しました',
-					body: '{{title}}の実行が停止しました。原因：利用可能なメモリが不足しています。いつでも再起動できます。'
+					body: '{{title}}の実行が停止しました。原因：割り当て可能なメモリが不足しています。いつでも再起動できます。'
 				}
 			]
 		},
