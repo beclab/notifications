@@ -15,7 +15,6 @@ const config = {
 	target: 'node',
 	// 置为空即可忽略webpack-node-externals插件
 	externals: {
-		bcrypt: 'commonjs2 bcrypt',
 		'@prisma/client': 'commonjs2 @prisma/client',
 		prisma: 'commonjs2 prisma'
 	},
