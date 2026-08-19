@@ -1,6 +1,6 @@
 import { Controller, Post, Body, Logger, HttpCode } from '@nestjs/common';
 
-import { Result, returnSucceed } from '@bytetrade/core';
+import { Result, returnSucceed } from '../core';
 import { TemplateService } from './template.service';
 import { KubeSphereNotification, Payload } from './global';
 

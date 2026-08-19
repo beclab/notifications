@@ -1,5 +1,5 @@
 import { ActiveStatus, Level } from '@prisma/client';
-import { MessageTopic } from '@bytetrade/core';
+import { MessageTopic } from '../core';
 
 export const TemplateList = [
 	{
