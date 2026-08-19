@@ -9,7 +9,7 @@ import axios from 'axios';
 // import { NatsConnection, StringCodec, connect } from 'nats';
 import { connect } from '@nats-io/transport-node';
 import { TemplateService } from './template.service';
-import { autoFuncWithRetry } from '@bytetrade/core';
+import { autoFuncWithRetry } from '../core';
 import { resolveStopReasonTemplateId } from './stop-reason';
 
 const NATS_HOST = process.env.NATS_HOST || '';

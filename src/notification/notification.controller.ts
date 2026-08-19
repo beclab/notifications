@@ -9,7 +9,7 @@ import {
 	Req
 } from '@nestjs/common';
 
-import { Result, returnError, returnSucceed } from '@bytetrade/core';
+import { Result, returnError, returnSucceed } from '../core';
 import { Template, TemplateContent } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 
