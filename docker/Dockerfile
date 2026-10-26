@@ -1,11 +1,11 @@
-FROM node:24.0.2-alpine as server_dist
+FROM node:26.12.1-alpine AS server_dist
 
 WORKDIR /server_dist
 
 # Only copy over the packages files of all required packages.
 # This will ensure that we don't have to install all dependencies
 # again if any source files change.
-COPY ../package*.json tsconfig.json ./
+COPY ../package*.json tsconfig.json tsconfig.build.json ./
 # Install dependencies and bootstrap packages
 RUN npm ci --unsafe-perm
 
@@ -15,11 +15,10 @@ COPY ../prisma ./prisma
 COPY ../tsconfig.json ./tsconfig.json
 COPY ../webpack.config.js ./webpack.config.js
 
-RUN npm install
 RUN npm run generate
 RUN npm run build
 
-FROM node:24.0.2-alpine
+FROM node:26.12.1-alpine
 
 EXPOSE 3010
 
