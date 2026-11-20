@@ -1,5 +1,6 @@
 import { ActiveStatus, Level } from '@prisma/client';
 import { MessageTopic } from '../core';
+import { DeviceInventoryTemplates } from './device-inventory-templates';
 
 export const TemplateList = [
 	{
@@ -1723,5 +1724,6 @@ export const TemplateList = [
 		user: '',
 		level: Level.Sign,
 		status: ActiveStatus.Active
-	}
+	},
+	...DeviceInventoryTemplates
 ];

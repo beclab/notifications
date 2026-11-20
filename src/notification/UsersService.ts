@@ -11,6 +11,11 @@ import { connect } from '@nats-io/transport-node';
 import { TemplateService } from './template.service';
 import { autoFuncWithRetry } from '../core';
 import { resolveStopReasonTemplateId } from './stop-reason';
+import {
+	DEVICE_INVENTORY_APP_ID,
+	deviceInventoryNotifications,
+	isDeviceInventorySubscription
+} from './device-inventory';
 
 const NATS_HOST = process.env.NATS_HOST || '';
 const NATS_PORT = process.env.NATS_PORT || 4222;
@@ -82,6 +87,40 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			data.appTemplateId
 		);
 		this.natsClient.publish(subject, JSON.stringify(data));
+	}
+
+	private async watchDeviceInventory(subject: string): Promise<void> {
+		try {
+			for await (const message of this.natsClient.subscribe(subject)) {
+				let payload: unknown;
+				try {
+					payload = JSON.parse(message.string());
+				} catch {
+					continue;
+				}
+
+				for (const notification of deviceInventoryNotifications(
+					message.subject,
+					payload
+				)) {
+					try {
+						await this.natsClientPublish(
+							notification.user,
+							DEVICE_INVENTORY_APP_ID,
+							notification.templateId,
+							{ vars: notification.vars }
+						);
+					} catch (error) {
+						this.logger.error(
+							'Failed to publish device notification',
+							error
+						);
+					}
+				}
+			}
+		} catch (error) {
+			this.logger.error('Device inventory subscription failed', error);
+		}
 	}
 
 	async handlesMessage(
@@ -448,6 +487,19 @@ export class UsersService implements OnModuleDestroy, OnModuleInit {
 			}
 		];
 		await this.handlesMessage(subjects);
+
+		const inventorySubject =
+			process.env.NATS_SUBJECT_DEVICE_INVENTORY?.trim();
+		if (
+			inventorySubject &&
+			isDeviceInventorySubscription(inventorySubject)
+		) {
+			void this.watchDeviceInventory(inventorySubject);
+		} else if (inventorySubject) {
+			this.logger.warn(
+				'Invalid device inventory notification subscription'
+			);
+		}
 
 		const templates = await this.templateService.findAll();
 		this.logger.log(`Found ${templates.length} templates in the system`);
